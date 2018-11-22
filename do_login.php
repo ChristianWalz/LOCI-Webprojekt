@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_POST["Nutzername"]) AND isset($_POST["Passwort"]))
 {
-    $nutzername=$_POST["Nutzername"];
+    $username=$_POST["Nutzername"];
     $passwort=$_POST["Passwort"];
 }
 else
@@ -16,12 +16,12 @@ include 'database.php';
 
 
 
-$statement = $pdo->prepare("SELECT * FROM users WHERE USERNAME=:nutzername AND PASSWORT=:passwort");
+$statement = $pdo->prepare("SELECT * FROM users WHERE username=:username AND passwort=:passwort");
 
-if($statement->execute(array(':nutzername'=>$nutzername, ':passwort'=>$passwort))) {
+if($statement->execute(array(':Nutzername'=>$username, ':Passwort'=>$passwort))) {
     if($row=$statement->fetch()) {
         //echo "angemeldet";
-        $_SESSION["angemeldet"]=$row["USERNAME"];
+        $_SESSION["angemeldet"]=$row["username"];
         header('Location: index.php');
     }  
     else
