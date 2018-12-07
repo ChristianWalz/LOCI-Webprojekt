@@ -1,157 +1,72 @@
 <?php
 session_start();
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
+<title>LOCI
+</title>
 <head>
-    <meta charset="utf-8">
-    <title>
-        LOCI
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0"> <!-- корректное отображение на мобильных устройствах, отмена масштабирования -->
+    <title>Willkommen bei LOCI</title>
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom css -->
+    <link href="main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="grid.css">
-    <style>
 
-
-        h1
-        {
-            background-color: transparent ;
-            border-style: solid;
-            border:0px;
-            border-color: cadetblue;
-            width:100%;
-            height:200px;
-            text-align: center;
-            padding-top: 50px;
-        }
-        header
-        {
-            height:200px;
-            font-family: 'Open Sans Condensed', sans-serif;
-            background-image: url("LOCI.png");
-            background-size:120px 100px;
-            background-color: gainsboro;
-            background-position: left top;
-            box-shadow:30px 10px 35px #002;
-
-        }
-        main{
-
-        }
-
-        main2{
-
-        }
-
-        footer{
-
-        }
-        #ul{
-            list-style:none;
-        }
-         #navigation {
-            width:150px;
-            height:50px;
-            float:left;
-            Background-color: #a9bdff;
-            text-decoration:none;
-            font-family: "Comic Sans MS";
-            border-left:5px;
-            border-left-color: #264264;
-            border-style:solid;
-            padding-top:5px;
-            padding-left:10px;
-        }
-        #navigation:hover {
-            background-color: #947eff;
-        }
-        @media screen and (max-width: 1000px;) {
-            #navigation {
-                background-color: red;
-                width: 80%;
-                height: 50px;
-            }
-        }
-
-
-
-    </style>
 </head>
+
 <body>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 bg_section_login">
+                <img class="logo" src="LOCI.png" alt="logo"/>
+            </div>
+            <div class="col-12 m_bg_section_login">
+                <img class="logo"src="LOCI.png" alt="logo"/>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 login_section">
+                <form class="needs-validation" action="do_login.php" method="post" novalidate>
 
-<header>
-
-   <h1>Willkommen bei LOCI</h1>
-</header>
-
-<main>
-    <div class="section group">
-        <div class="col span_1_of_3">
-           <ul id="ul"> <li><a id="navigation" href="login.html">Login</a></li>
-               <li><a id="navigation" href="register.html">Registrieren</a></li>
-               <li><a id="navigation" href="logout.php">Logout</a></li></ul>
-
-        </div>
-        <div class="col span_2_of_3">
-            <ul id="ul"> <li><a id="navigation" href="schreiben.php" >neuer Beitrag</a></li></ul><br><br><br><br>
-            <?php
-            $user_id = $_SESSION['aktiveruser'];
-            echo 'user nr '$user_id' ist angemeldet.';
-
-            if(isset($_SESSION["angemeldet"]))
-            {
-                echo"angemeldet.";
-
-            }
-            else
-            {
-                echo"nicht angemeldet.";
-                die();
-            }
-            echo"<br>";
-            $content= $_POST["content"];
-            echo $content;
-
-            include 'database.php';
-
-
-            $statement = $pdo->prepare("SELECT * FROM posts");
-            if($statement->execute()) {
-                while($row=$statement->fetch()) {
-                    echo $row['POST_ID']." ".$row['TEXT']." ".$row['USER_ID'];
-                    echo "<a href=\"edit.php?id=".$row['POST_ID']."\">EDIT</a>";
-                    echo "<br>";
-                }
-            } else {
-                echo "Datenbank-Fehler:";
-                echo $statement->errorInfo()[2];
-                echo $statement->queryString;
-                die();
-            }
-
-            ?>
-        </div>
-        <div class="col span_3_of_3">
-            <li> NEWS BEREICH</li>
+                    <!-- дальше записывает-->
+                    <h1>Willkommen bei LOCI</h1>
+                    <div class="error" id="user-error">
+                        <img src="bilder/error.svg" alt="error_icon"/>
+                        Falsche Benutzername
+                    </div>
+                    <div class="error" id="pass-error">
+                        <img src="bilder/error.svg" alt="error_icon" />
+                        Falsches Passwort
+                    </div>
+                    <div class="form-row">
+                        <input type="text" class="form-control" name="Nutzername"  aria-describedby="emailHelp" placeholder="Benutzername" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="password" class="form-control" name="Passwort"  placeholder="Passwort" required>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="login_check">
+                        <label class="form-check-label" for="login_check">Eingeloggt bleiben</label>
+                        <a href="#">Passwort vergessen?</a>
+                    </div>
+                    <input type="submit" class="btn btn-primary" name="Login" value="Einloggen" />
+                    <div class="bigger_text">Neu bei Loci? </div>
+                    <input type="submit" class="btn btn-outline-primary" name="Register" value="Registrieren" />
+                </form>
+                <!-- нужно переходить на страницу профиля-->
+            </div>
         </div>
     </div>
+</div>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Custom JS -->
+<script src="index.js"></script>
 
-
-    </br>
-    </br>
-    </br>
-
-</main>
-<br>
-
-<main2>
-
-</main2>
-
-<footer>
-
-</footer>
 </body>
-
 </html>
