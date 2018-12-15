@@ -7,9 +7,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Mein Profil</title>
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="bootstrap-4.1.3-dist/css" rel="stylesheet" id="bootstrap-css">
+    <script src="bootstrap-4.1.3-dist/js"></script>
+    <script src="jquery-3.3.1.min" ></script>
     <link rel="stylesheet" href="profile.css" >
 
 </head>
@@ -94,7 +94,42 @@ session_start();
         </div>
         <div class="col-md-9">
             <div class="profile-content">
-                Beiträge</div>
+                <h1>Beiträge</h1>
+                <?php
+
+                $user_id = $_SESSION['aktiveruser'];
+                if(isset($_SESSION['angemeldet']))
+                {
+                    echo 'Nutzer mit der Nummer '. $user_id; echo 'ist angemeldet.';
+                }
+                else
+                {
+                    echo"Du bist nicht angemeldet.";
+                    die();
+                }
+                echo"<br>";
+                echo"<br>";
+                $content= $_POST["content"];
+                echo $content;
+                include 'database.php';
+                $statement = $pdo->prepare("SELECT * FROM posts");
+                if($statement->execute()) {
+                    while($row=$statement->fetch()) {
+                        echo $row['POST_ID']." ".$row['TEXT']." ".$row['USER_ID'];
+                        echo "<a href=\"edit.php?id=".$row['POST_ID']."\">EDIT</a>";
+                        echo "<br>";
+                    }
+                } else {
+                    echo "Datenbank-Fehler:";
+                    echo $statement->errorInfo()[2];
+                    echo $statement->queryString;
+                    die();
+                }
+                ?>
+
+
+            </div>
+            <ul id="ul"> <li><a id="navigation" href="schreiben.php" >neuer Beitrag</a></li></ul><br><br><br><br>
         </div>
     </div>
 </div>
@@ -102,38 +137,9 @@ session_start();
     <div id="impressum"><a href="" target="_blank">Impressum </a></div>
 
 
-<?php
 
-$user_id = $_SESSION['aktiveruser'];
-if(isset($_SESSION['angemeldet']))
-{
-    echo '"$user_id" ist angemeldet.';
-}
-else
-{
-echo"Du bist nicht angemeldet.";
-die();
-}
-echo"<br>";
-echo"<br>";
-$content= $_POST["content"];
-echo $content;
-include 'database.php';
-$statement = $pdo->prepare("SELECT * FROM posts");
-if($statement->execute()) {
-while($row=$statement->fetch()) {
-echo $row['POST_ID']." ".$row['TEXT']." ".$row['USER_ID'];
-echo "<a href=\"edit.php?id=".$row['POST_ID']."\">EDIT</a>";
-echo "<br>";
-}
-} else {
-echo "Datenbank-Fehler:";
-echo $statement->errorInfo()[2];
-echo $statement->queryString;
-die();
-}
-?>
 </form>
+
 </body>
 <br>
 <br>
