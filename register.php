@@ -13,6 +13,9 @@ include_once 'database.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--  css -->
     <link href="main.css" rel="stylesheet">
+    <script src="javascript.js"></script>
+
+
 </head>
 
 <body>
@@ -26,11 +29,11 @@ include_once 'database.php';
                 <img class="logo" src="LOCI.png" alt="logo"/>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 signup_section">
-                <form action="do_register.php" method="post" class="needs-validation" novalidate>
+                <form action="do_register.php" method="post" class="form" novalidate> <!--das Formular muss beim Abschicken  nicht validiert werden:-->
                     <h1>Willkommen bei LOCI</h1>
-                    <div class="error" id="mail-error">
-                        <img src="bilder/error.svg" alt="error_icon"/>
-                        Falsche Benutzername
+                  <div class="error" id="mail-error">
+                        <img src="bilder/error.svg" alt="error_icon"/> <!--Falsche BenutzernameFehlermeldung bei falscher Eingabe-->
+
 </div>
                     <div class="form-row">
                         <input type="text" class="form-control" name="Nutzername" id="name" aria-describedby="emailHelp" placeholder="Benutzername" required>
@@ -88,7 +91,12 @@ include_once 'database.php';
                     </div>
 
                     <div class="form-row">
-                        <input type="password" class="form-control" name="Passwort" id="password" placeholder="Passwort" required>
+                       <!-- <input type="password" class="form-control" name="Passwort" id="password" placeholder="Passwort" required>-->
+                        <input type="password" class="form-control" id="password" name="Passwort"  required>
+                        <!-- die Angaben werden in Elementattribut 'pattern' werden mit dem der Browser überprüft pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
+                        <!--<input type="button" value="Submit" onclick="analyze()"-->
+
+                        <!--eingegebene Daten analysieren-->
                     </div>
                     <div class="form-row">
                     <input type="password" class="form-control" id="re_password" placeholder="Passwort wiederholen" required>
@@ -97,8 +105,15 @@ include_once 'database.php';
                         <input type="checkbox" class="form-check-input" id="login_check">
                         <label class="form-check-label" for="login_check">Mit der Anmeldung stimmst du <a href="#"> unseren Nutzungsbedgungen</a>, <a href="#">und Datenschutzrichtlinie </a>zu</label>
                     </div>
-                    <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren">
-                    <div class="bigger_text">Du hast bereits einen Account? </div>
+                <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren" onclick="analyze()" >
+                    <div id="pswrules">
+                        <h3>Kriterien für die Passwortwahl :</h3>
+                        <p id="letter" class="invalid">Mindestens <b>ein Kleinbuchstabe</b></p>
+                        <p id="capital" class="invalid">Mindestens<b>ein Großbuchstabe</b></p>
+                        <p id="number" class="invalid">Mindestens <b>eine Zahl</b> von 0-9</p>
+                        <p id="length" class="invalid">Mindestens<b>8 Zeichen</b></p>
+                    </div>
+                <div class="bigger_text">Du hast bereits einen Account? </div>
 
                 </form>
 
@@ -115,8 +130,6 @@ include_once 'database.php';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<!-- JS -->
-<script src="index.js"></script>
 
 
 </body>
