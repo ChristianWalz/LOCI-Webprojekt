@@ -103,7 +103,7 @@ include_once 'database.php';
             </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="login_check">
-                        <label class="form-check-label" for="login_check">Mit der Anmeldung stimmst du <a href="#"> unseren Nutzungsbedgungen</a>, <a href="#">und Datenschutzrichtlinie </a>zu</label>
+                    <!--    <label class="form-check-label" for="login_check">Mit der Anmeldung stimmst du <a href="#"> unseren Nutzungsbedgungen</a>, <a href="#">und Datenschutzrichtlinie </a>zu</label>-->
                     </div>
                 <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren" onclick="analyze()" >
                     <div id="pswrules">
