@@ -15,3 +15,10 @@ Login und Registrierung  Bootstrap/CSS (login, do_login, register, do_register, 
 
 13.12
 Bild Upload in die Datenbank (profile, profile_change, do_image_upload, do_upload)
+
+
+07.01.
+Responsives Layout Main-seite (home->main)
+Profilseite erstellt (profile)
+
+16.01. Änderungen auf der Profilseite (php+html/css)
