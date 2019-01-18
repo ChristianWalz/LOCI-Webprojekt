@@ -47,6 +47,16 @@ $query->execute(array(':nutzername'=>$nutzername, ':passwort'=>$passwort));
 $result2 = $query->fetch(  PDO::FETCH_ASSOC);
 $nutzer_ausgelesen = $result2 ["USERNAME"];
 $_SESSION['aktiveruser_name'] = $nutzer_ausgelesen;
+
+// Attribut auslesen und in Session schreiben
+$query =  $pdo->prepare ( "SELECT ATTRIBUT FROM users WHERE USERNAME=:nutzername AND PASSWORT=:passwort");
+$query->execute(array(':nutzername'=>$nutzername, ':passwort'=>$passwort));
+$result3 = $query->fetch(  PDO::FETCH_ASSOC);
+$studiengang_ausgelesen = $result3 ["USERNAME"];
+$_SESSION['aktiveruser_name'] = $studiengang_ausgelesen;
+
+
+
 //echo $user_id;
 
 /* $create = $pdo->prepare ("CREATE TABLE IF NOT EXISTS 'folgen_' ('NUTZER' INT ENGINE=INNODB");

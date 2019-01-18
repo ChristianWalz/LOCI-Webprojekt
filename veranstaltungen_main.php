@@ -10,7 +10,7 @@ session_start();
     <link href="bootstrap-4.1.3-dist/css" rel="stylesheet" id="bootstrap-css">
     <script src="bootstrap-4.1.3-dist/js"></script>
     <script src= "jquery-3.3.1.min.js" ></script>
-    <link rel="stylesheet" href="profile.css" >
+    <link rel="stylesheet" href="main.css" >
 
 </head>
 
@@ -78,9 +78,11 @@ session_start();
 
 
                         <li>
-                            <a href="logout.php">
-                                <i class="glyphicon glyphicon-log-out"></i>
-                                Abmelden </a>
+                            <form action="logout.php">
+
+                                <input type="submit" value="Logout">
+
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -102,8 +104,8 @@ session_start();
                     }
                 </script>
 
-                <button type="button" onclick="show('alle_veranstaltungen');">Alle Veranstaltungen</button>
-                <button type="button" onclick="show('meine_veranstaltungen');">Meine Veranstaltungen</button>
+                <button class="buttonsecnav" type="button" onclick="show('alle_veranstaltungen');">Alle Veranstaltungen</button>
+                <button class="buttonsecnav" type="button" onclick="show('meine_veranstaltungen');">Meine Veranstaltungen</button>
 
 
 
