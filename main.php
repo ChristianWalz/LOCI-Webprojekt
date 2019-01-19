@@ -17,7 +17,7 @@ session_start();
 <body>
 <div class="container">
     <div class="row profile">
-        <div class="col-md-3">
+        <div class="main_nav">
             <div class="profile-sidebar">
                 <!-- SIDEBAR Userimage -->
                 <div class="profile-img">

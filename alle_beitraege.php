@@ -21,7 +21,7 @@ include 'database.php';
 $statement = $pdo->prepare("SELECT * FROM posts");
 if($statement->execute()) {
     while($row=$statement->fetch()) {
-        echo $row['POST_ID']." ".$row['TEXT']." ".$row['USER_ID'];
+        echo $row['POST_ID']." ".$row['TEXT']." ".$row['USERNAME']." ".$row['USER_ID'];
         echo "<a href=\"edit.php?id=".$row['POST_ID']."\">EDIT</a>";
         echo "<br>";
     }
