@@ -22,6 +22,7 @@ $statement = $pdo->prepare("SELECT * FROM posts");
 if($statement->execute()) {
     while($row=$statement->fetch()) {
         echo $row['POST_ID']." ".$row['TEXT']." ".$row['USERNAME']." ".$row['USER_ID'];
+        echo "<a href=\"profil_fremd.php?id=".$row['USER_ID']."\">Zum Profil</a>";
         echo "<a href=\"edit.php?id=".$row['POST_ID']."\">EDIT</a>";
         echo "<br>";
     }
