@@ -27,4 +27,4 @@ Profilseite erstellt (profile)
 
 20.01. Profilbildupload (home.php, change_image, imageupload)
 
-20.01. Folgen, entfolgen, sowie anzeige verfolgter beiträge und eigener beiträge hinzugefügt
+20.01. Folgen, entfolgen, sowie anzeige verfolgter beiträge und eigener beiträge hinzugefügt, datenbank erweitert "following"
