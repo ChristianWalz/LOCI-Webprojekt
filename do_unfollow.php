@@ -7,10 +7,11 @@ $id_fremd = $_GET['id'];  //Zieht den Parameter aus der URL
 
 include 'database.php';
 
-$statement = $pdo->prepare("INSERT INTO following (USER_ID, FOLLOWER_ID) VALUES (?,?)");
+$statement = $pdo->prepare("DELETE FROM following WHERE USER_ID='$user_id' AND FOLLOWER_ID='$id_fremd'");
 $statement->execute(array($user_id, $id_fremd));
 
 echo 'Sie folgen nun dem Nutzer mit der ID: '.$id_fremd  ;
+echo ' nicht mehr.';
 echo '<br>';
 echo "<a href=\"profil_fremd.php?id=".$id_fremd."\">Zurück</a>";
 

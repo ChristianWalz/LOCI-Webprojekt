@@ -41,6 +41,8 @@ $profilbild ='Profilbild_' .$id_fremd.'.png';
  echo '<p><img src=$profilbild /></p>';
 
 echo "<a href=\"do_follow.php?id=".$id_fremd."\">Folgen</a>";
+echo '<br>';
+echo "<a href=\"do_unfollow.php?id=".$id_fremd."\">Entolgen</a>";
 ?>
 
 
