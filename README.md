@@ -23,5 +23,8 @@ Profilseite erstellt (profile)
 
 16.01. Änderungen auf der Profilseite (php+html/css)
 
+16.01. Navigation, sowie Buttons zum ein und ausblenden der Inhalte: Beiträge, Veranstaltungen, News(noch zum Teil Platzhalter)
+
 20.01. Profilbildupload (home.php, change_image, imageupload)
+
 20.01. Folgen, entfolgen, sowie anzeige verfolgter beiträge und eigener beiträge hinzugefügt
