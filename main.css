@@ -1,37 +1,138 @@
-
-
-html {
-    line-height: 1;
+nav {
+    display:flex;
+    align-content : center;
 }
 
-ol, ul {
-    list-style: none;
+.container {
+    margin-top: 0;
+}
+/*PROFILBILD*/
+#user_img {
+    height: 200px;
+    background: #aaa;
+    margin: 0;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+/*LOGO*/
+#logo {
+    height:30px;
+    width:auto;
+    margin:5px;
+
+}
+#flat_button {
+    margin:65px;
+}
+.btn-light {
+    background-color:#D3D3D3;
 }
 
-caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
+
+#nav_options {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-left: 8px;
 }
 
-q, blockquote {
-    quotes: none;
+/*Eingabefeld*/
+#input {
+    width: 350px;
+    height:50px;
+    margin:30px 30px 40px;
+    padding: 10px 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #cfcfcf;
+    -webkit-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+    -moz-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+    box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+
 }
-q:before, q:after, blockquote:before, blockquote:after {
-    content: "";
-    content: none;
+/*Pseudoklasse :focus für Gloweffekt*/
+#input:focus {
+    outline:0;
+    border:1px solid #95D2DF;
+    -webkit-box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+    -moz-box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+    box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+}
+#new_post button {
+    margin-top: -50px;
+    margin-left: 280px;
+
+}
+.fa-cog {
+    color: #1da1f2;
 }
 
-a img {
-    border: none;
-    float: right;
-    width: 200px;
+#beitraege div{
+    position: relative;
+    height: 80px;
+
 }
+
+
+#beitraege div p{
+
+    margin-left: 30px;
+
+}
+
+
+
+#alle_beitraege div {
+    position: relative;
+    margin-left: 10px;
+
+
+}
+
+
+.abstand {
+    padding-top:20px;
+    padding-right:20px;
+    padding-left:20px;
+
+}
+
+
+.space {
+    margin-bottom: -20px;
+}
+
+.feed {
+    margin-bottom: -30px;
+
+
+}
+
+.background {
+    background-image: url(/bilder/ZHI04.jpg);
+    background-position: bottom center;
+    background-attachment: scroll;
+    opacity:0.5;
+}
+@media (min-width: 1025px) {
+    .background{
+        background-repeat: no-repeat;
+        background-size:contain;
+        background-attachment:fixed;
+        opacity:0.5;
+
+    }
+}
+
+
+.container {
+
+    background-color: #669999;
+}
+
+
 
 .logo {
     width: 70%;
@@ -40,461 +141,141 @@ a img {
     background-repeat: no-repeat;
     background-size: contain;
 
+}
+
+
+
+
+nav {
+    display:flex;
+    align-content : center;
+}
+
+.container{
+
+    margin-top:0;
+}
+/*PROFILBILD*/
+#user_img {
+    height: 200px;
+    background: #aaa;
+    margin: 0;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+/*LOGO*/
+#logo {
+    height:30px;
+    width:auto;
+    margin:5px;
+
+}
+#flat_button {
+    margin:65px;
+}
+.btn-light {
+    background-color:#D3D3D3;
+}
+
+
+#nav_options {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-left: 8px;
+}
+
+/*Eingabefeld*/
+#input {
+    width: 350px;
+    height:50px;
+    margin:30px 30px 40px;
+    padding: 10px 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #cfcfcf;
+    -webkit-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+    -moz-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+    box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+
+}
+/*Pseudoklasse :focus für Gloweffekt*/
+#input:focus {
+    outline:0;
+    border:1px solid #95D2DF;
+    -webkit-box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+    -moz-box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+    box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+}
+#new_post button {
+    margin-top: -50px;
+    margin-left: 280px;
+
+}
+.fa-cog {
+    color: #1da1f2;
+}
+
+#beitraege div{
+    position: relative;
+    height: 80px;
 
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-    display: block;
+
+#beitraege div p{
+
+    margin-left: 30px;
+
 }
 
-.container .login_section form h1, .container .signup_section form h1 {
-    font-weight: bold;
-    font-size: 22px;
+
+
+#alle_beitraege div {
+    position: relative;
+    margin-left: 10px;
+
+
+
 }
 
-.was-validated-user #user-error, .was-validated-password #pass-error {
-    display: block !important;
-    color: #da4644;
-    font-size: 11px;
+
+.abstand {
+    padding-top:20px;
+    padding-right:20px;
+    padding-left:20px;
+
 }
 
-.container .login_section form h1, .container .signup_section form h1 {
-    font-weight: bold;
-    font-size: 22px;
-    margin-bottom: 40px;
+
+.space {
+    margin-bottom: -20px;
 }
-@media only screen and (max-width: 575px) {
-    .container .login_section form h1, .container .signup_section form h1 {
-        font-size: 28px;
-        margin-top: 0;
+
+.background {
+    background-image: url(/bilder/ZHI04.jpg);
+    background-position: bottom center;
+    background-attachment: scroll;
+    opacity:0.5;
+}
+@media (min-width: 1025px) {
+    .background{
+        background-repeat: no-repeat;
+        background-size:contain;
+        background-attachment:fixed;
+        opacity:0.5;
+
     }
 }
 
-.container .login_section form .btn-primary,
-.container .login_section form .btn-outline-primary,
-.container .signup_section form .btn-primary,
-.container .signup_section form .btn-outline-primary,
-.container .signup_section a {
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    margin-top: 15px;
-    font-size: 12px;
-}
-
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-    .container .login_section form .btn-primary,
-    .container .login_section form .btn-outline-primary, .container .signup_section form .btn-primary,
-    .container .signup_section form .btn-outline-primary {
-        font-size: 10px;
-    }
-}
-
-.container .login_section form .btn-primary, .container .signup_section form .btn-primary {
-    background-color: #2cabee;
-    border: 1px solid #2cabee;
-    padding: 7px 40px;
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-    .container .login_section form .btn-primary, .container .signup_section form .btn-primary {
-        padding: 6px 20px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-    .container .login_section form .btn-primary, .container .signup_section form .btn-primary {
-        padding: 5px 15px;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section form .btn-primary, .container .signup_section form .btn-primary {
-        padding: 10px 40px;
-    }
-}
-
-.container .login_section form .btn-outline-primary, .container .signup_section form .btn-outline-primary {
-    border: 2px solid #2cabee;
-    color: #2cabee;
-    margin-left: 4px;
-    padding: 7px 43px;
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-    .container .login_section form .btn-outline-primary, .container .signup_section form .btn-outline-primary {
-        padding: 5px 15px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-    .container .login_section form .btn-outline-primary, .container .signup_section form .btn-outline-primary {
-        padding: 6px 20px;
-    }
-}
-@media only screen and (max-width: 575px) {
-
-    .container .login_section form .btn-outline-primary, .container .signup_section form .btn-outline-primary {
-        padding: 10px 40px;
-    }
-}
-.container .login_section form .btn-outline-primary:hover, .container .signup_section form .btn-outline-primary:hover {
-    background-color: #2cabee;
-    color: #ffffff;
-}
-
-.container .login_section form .form-row .form-control, .container .signup_section form .form-row .form-control {
-    width: 280px;
-    font-size: 0.85rem;
-    padding: 8px 20px;
-    margin-top: 10px;
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section form .form-row .form-control, .container .signup_section form .form-row .form-control {
-        width: 385px;
-        font-size: 1.1rem;
-        margin-top: 10px;
-        padding: 12px 30px;
-    }
-}
-
-.container .login_section form .form-check, .container .signup_section form .form-check {
-    margin-top: 5px;
-    line-height: 1.5;
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section form .form-check, .container .signup_section form .form-check {
-        margin-top: 10px;
-    }
-}
-.container .login_section form .form-check .form-check-label, .container .signup_section form .form-check .form-check-label, .container .login_section form .form-check a, .container .signup_section form .form-check a {
-    font-size: 11px;
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section form .form-check .form-check-label, .container .signup_section form .form-check .form-check-label, .container .login_section form .form-check a, .container .signup_section form .form-check a {
-        font-size: 0.8rem;
-    }
-}
-.container .login_section form .form-check .form-check-label, .container .signup_section form .form-check .form-check-label {
-    color: #98a6a9;
-    padding-left: 5px;
-}
-
-.error {
-    display: none;
-}
-
-.was-validated-user #user-error img {
-    width: 14px;
-}
-
-.was-validated-password #pass-error img {
-    width: 14px;
-}
-
-body {
-    background-color: #2cabee;
-    font-family: Arial;
-}
 
 .container {
-    max-height: 620px;
-    background-color: #ffffff;
-    -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    margin-top: 50px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .container {
-        max-height: 520px;
-    }
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-    .container {
-        max-height: 545px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-    .container {
-        max-height: 440px;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .container {
-        max-height: 100%;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .container {
-        margin-bottom: 50px;
-    }
-}
-.container .bg_section_login,
-.container .bg_section_signup {
-    max-height: 620px;
-    background-size: cover !important;
-    position: relative;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .container .bg_section_login,
-    .container .bg_section_signup {
-        max-height: 520px;
-    }
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-    .container .bg_section_login,
-    .container .bg_section_signup {
-        max-height: 545px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-    .container .bg_section_login,
-    .container .bg_section_signup {
-        max-height: 440px;
-        display: block;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .container .bg_section_login,
-    .container .bg_section_signup {
-        display: none;
-    }
+
+    background-color: #669999;
 }
 
-.container .bg_section_login img,
-.container .bg_section_signup img {
-    width: 220px;
-    position: absolute;
-    top: 8%;
-    left: -10px;
+.beitraege_iframe {
+    border: none;
 }
-
-.container .m_bg_section_login {
-    display: none;
-}
-@media only screen and (max-width: 575px) {
-    .container .m_bg_section_login {
-        background: url("bilder/hdm_2.jpg") no-repeat;
-        display: block;
-        background-size: contain;
-        padding-left: 0px;
-        padding-bottom: 57%;
-    }
-    .container .m_bg_section_login img {
-        width: 34%;
-        padding-top: 6%;
-    }
-}
-
-.container .m_bg_section_signup {
-    display: none;
-}
-@media only screen and (max-width: 575px) {
-    .container .m_bg_section_signup {
-        background: url("bilder/hochschule_2.jpg") no-repeat;
-        display: block;
-        background-size: contain;
-        padding-left: 0px;
-        padding-bottom: 57%;
-    }
-    .container .m_bg_section_signup img {
-        width: 34%;
-        padding-top: 6%;
-    }
-}
-.container .bg_section_login {
-    background: url("bilder/hdm_2.jpg") no-repeat;
-}
-.container .bg_section_signup {
-    background: url("bilder/hochschule.jpg") no-repeat;
-}
-.container .login_section {
-    padding-top: 200px;
-    padding-bottom: 185px;
-    padding-left: 108px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .container .login_section {
-        padding-top: 140px;
-        padding-bottom: 100px;
-    }
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-    .container .login_section {
-        padding-top: 130px;
-        padding-left: 40px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-    .container .login_section {
-        padding-top: 100px;
-        padding-left: 16px;
-        padding-bottom: 80px;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section {
-        padding-top: 10px;
-        padding-bottom: 5px;
-        padding-left: 5%;
-    }
-}
-.container .login_section form {
-    padding-bottom: 100px;
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section form {
-        padding-bottom: 30px;
-    }
-}
-@media only screen and (max-width: 575px) {
-    .container .login_section form .btn-primary,
-    .container .login_section form .btn-outline-primary {
-        font-size: 16px;
-        margin-top: 25%;
-    }
-}
-.container .login_section form .form-row {
-    margin-bottom: 0;
-}
-.container .login_section form .form-row input:-moz-placeholder {
-    color: #98a6a9;
-}
-.container .login_section form .form-row input::-moz-placeholder {
-    color: #98a6a9;
-}
-.container .login_section form .form-row input:-ms-input-placeholder {
-    color: #98a6a9;
-}
-.container .login_section form .form-row input::-webkit-input-placeholder {
-    color: #98a6a9;
-}
-
-.container .login_section form .form-check a {
-    margin-left: 80px;
-    color: #2cabee;
-    font-weight: bold;
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-
-    .container .login_section form .form-check a {
-        margin-left: 10%;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-
-    .container .login_section form .form-check a {
-        margin-left: 10%;
-    }
-}
-@media only screen and (max-width: 575px) {
-
-    .container .login_section form .form-check a {
-        margin-left: 25%;
-    }
-}
-
-.container .login_section form .form-check a:hover {
-    text-decoration: none;
-}
-
-.container .signup_section {
-    padding-top: 100px;
-    padding-bottom: 113px;
-    padding-left: 108px;
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-    .container .signup_section {
-        padding-top: 50px;
-    }
-}
-@media only screen and (min-width: 720px) and (max-width: 991px) {
-
-    .container .signup_section {
-        padding-top: 50px;
-        padding-left: 50px;
-    }
-}
-@media only screen and (min-width: 576px) and (max-width: 719px) {
-
-    .container .signup_section {
-        padding-top: 5px;
-        padding-left: 20px;
-    }
-}
-@media only screen and (max-width: 575px) {
-
-    .container .signup_section {
-        padding-top: 10px;
-        padding-bottom: 5px;
-        padding-left: 5%;
-    }
-}
-
-.container .signup_section form {
-    max-width: 278px;
-}
-@media only screen and (max-width: 575px) {
-
-    .container .signup_section form {
-        padding-bottom: 30px;
-        max-width: 100%;
-    }
-}
-@media only screen and (max-width: 575px) {
-
-    .container .signup_section form .btn-primary,
-    .container .signup_section form .btn-outline-primary {
-        font-size: 16px;
-        margin-top: 5%;
-    }
-}
-.container .signup_section form .form-row {
-    margin-bottom: 0;
-}
-.container .signup_section form .form-row input:-moz-placeholder {
-    color: #98a6a9;
-}
-.container .signup_section form .form-row input::-moz-placeholder {
-    color: #98a6a9;
-}
-.container .signup_section form .form-row input:-ms-input-placeholder {
-    color: #98a6a9;
-}
-.container .signup_section form .form-row input::-webkit-input-placeholder {
-    color: #98a6a9;
-}
-
-.container .signup_section form .small_text {
-    padding-left: 20px;
-    margin-top: 10px;
-    color: #98a6a9;
-    font-size: 11px;
-    line-height: 1.5em;
-}
-
-.container .signup_section form .small_text a {
-    color: #2cabee;
-    font-weight: bold;
-}
-
-.bigger_text
-{
-    padding-left: 20px;
-    margin-top: 10px;
-    color:#848484;
-    font-size: 13px;
-    line-height: 1.5em;
-    font-weight: bold;
-}
-
-.custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
-    background-color: #fefacb;
-}
-
-
-.custom-select.is-valid, .form-control.is-valid, .was-validated .custom-select:valid, .was-validated .form-control:valid {
-    border-color: #a2a2a2;
-}
-
-.btn
