@@ -22,3 +22,5 @@ Responsives Layout Main-seite (home->main)
 Profilseite erstellt (profile)
 
 16.01. Änderungen auf der Profilseite (php+html/css)
+
+20.01. Profilbildupload (home.php, change_image, imageupload)
