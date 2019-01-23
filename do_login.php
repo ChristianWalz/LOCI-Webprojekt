@@ -48,21 +48,29 @@ $result2 = $query->fetch(  PDO::FETCH_ASSOC);
 $nutzer_ausgelesen = $result2 ["USERNAME"];
 $_SESSION['aktiveruser_name'] = $nutzer_ausgelesen;
 
-// Attribut auslesen und in Session schreiben
-$query =  $pdo->prepare ( "SELECT ATTRIBUT FROM users WHERE USERNAME=:nutzername AND PASSWORT=:passwort");
+// Attribut Studiengang auslesen und in Session schreiben
+$query =  $pdo->prepare ( "SELECT STUDIENGANG FROM users WHERE USERNAME=:nutzername AND PASSWORT=:passwort");
 $query->execute(array(':nutzername'=>$nutzername, ':passwort'=>$passwort));
 $result3 = $query->fetch(  PDO::FETCH_ASSOC);
-$studiengang_ausgelesen = $result3 ["USERNAME"];
-$_SESSION['aktiveruser_name'] = $studiengang_ausgelesen;
+$studiengang_ausgelesen = $result3 ["STUDIENGANG"];
+$_SESSION['aktiveruser_studi'] = $studiengang_ausgelesen;
 
 
+// Über Text auslesen und in Session schreiben
+$query =  $pdo->prepare ( "SELECT UEBER FROM users WHERE USERNAME=:nutzername AND PASSWORT=:passwort");
+$query->execute(array(':nutzername'=>$nutzername, ':passwort'=>$passwort));
+$result4 = $query->fetch(  PDO::FETCH_ASSOC);
+$ueber = $result4 ["UEBER"];
+$_SESSION['uber_text'] = $ueber;
 
-//echo $user_id;
+
+echo $ueber;
 
 /* $create = $pdo->prepare ("CREATE TABLE IF NOT EXISTS 'folgen_' ('NUTZER' INT ENGINE=INNODB");
 $create-> execute () ;
 */
-header('Location: main.php');
+
+//header('Location: main.php');
 
 /*  if (isset($_POST['Login'])) {
     header('Location: profile.php');
