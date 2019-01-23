@@ -64,13 +64,13 @@ $ueber = $result4 ["UEBER"];
 $_SESSION['uber_text'] = $ueber;
 
 
-echo $ueber;
+//echo $ueber;
 
 /* $create = $pdo->prepare ("CREATE TABLE IF NOT EXISTS 'folgen_' ('NUTZER' INT ENGINE=INNODB");
 $create-> execute () ;
 */
 
-//header('Location: main.php');
+header('Location: main.php');
 
 /*  if (isset($_POST['Login'])) {
     header('Location: profile.php');
