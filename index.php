@@ -1,157 +1,83 @@
 <?php
 session_start();
+/*if (isset($_SESSION['eingelogt'])) {
+    header('Location: main.php');      // Benutzer ist bereits eingeloggt und wird zum Feed weitergeleitet
+    exit;
+} else if (!isset($_SESSION['name']) and (isset($_GET["error"])) and ((empty(htmlspecialchars($_GET["error"]))))) {
+    $error = 0;                                 // Error 0 bedeutet es gab keinen Error beim einloggen (noch keinen Loginversuch)
+} else if (!isset($_SESSION['name']) and (isset($_GET["error"])) and ((htmlspecialchars($_GET["error"])) == 1)){
+    $error = 1; // Error 1 Benutzername- und Passwortkombination nicht vorhanden
+} else if (!isset($_SESSION['name']) and (isset($_GET["error"])) and ((htmlspecialchars($_GET["error"])) == 2)){
+    $error = 2;                                 // Error 2 Fehler bei der Registrierung - Nicht alle Felder ausgefüllt bei der registrierung
+} else if (!isset($_SESSION['name']) and (isset($_GET["error"])) and ((htmlspecialchars($_GET["error"])) == 3)){
+    $error = 3;                                 // Error 3 Fehler bei der Registrierung - Nutzername schon vergeben
+} else if (!isset($_SESSION['name']) and (isset($_GET["error"])) and ((htmlspecialchars($_GET["error"])) == 4)){
+    $error = 4;                                 // Error 4 Fehler bei der Registrierung - Passwörter stimmen nicht überein
+}*/
 ?>
-<!doctype html>
+
+
+
+<!DOCTYPE html>
 <html lang="de">
+<title>LOCI
+</title>
 <head>
-    <meta charset="utf-8">
-    <title>
-        LOCI
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0"> <!-- корректное отображение на мобильных устройствах, отмена масштабирования -->
+    <title>Willkommen bei LOCI</title>
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom css -->
+    <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="grid.css">
-    <style>
 
-
-        h1
-        {
-            background-color: transparent ;
-            border-style: solid;
-            border:0px;
-            border-color: cadetblue;
-            width:100%;
-            height:200px;
-            text-align: center;
-            padding-top: 50px;
-        }
-        header
-        {
-            height:200px;
-            font-family: 'Open Sans Condensed', sans-serif;
-            background-image: url("LOCI.png");
-            background-size:120px 100px;
-            background-color: gainsboro;
-            background-position: left top;
-            box-shadow:30px 10px 35px #002;
-
-        }
-        main{
-
-        }
-
-        main2{
-
-        }
-
-        footer{
-
-        }
-        #ul{
-            list-style:none;
-        }
-         #navigation {
-            width:150px;
-            height:50px;
-            float:left;
-            Background-color: #a9bdff;
-            text-decoration:none;
-            font-family: "Comic Sans MS";
-            border-left:5px;
-            border-left-color: #264264;
-            border-style:solid;
-            padding-top:5px;
-            padding-left:10px;
-        }
-        #navigation:hover {
-            background-color: #947eff;
-        }
-        @media screen and (max-width: 1000px;) {
-            #navigation {
-                background-color: red;
-                width: 80%;
-                height: 50px;
-            }
-        }
-
-
-
-    </style>
 </head>
+
 <body>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 bg_section_login">
+                <img class="logo" src="LOCI.png" alt="logo"/>
+            </div>
+            <div class="col-12 m_bg_section_login">
+                <img class="logo" src="LOCI.png" alt="logo"/>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 login_section">
 
-<header>
+                    <form class="needs-validation" action="do_login.php" method="post" novalidate>
 
-   <h1>Willkommen bei LOCI</h1>
-</header>
-
-<main>
-    <div class="section group">
-        <div class="col span_1_of_3">
-           <ul id="ul"> <li><a id="navigation" href="login.html">Login</a></li>
-               <li><a id="navigation" href="register.html">Registrieren</a></li>
-               <li><a id="navigation" href="logout.php">Logout</a></li></ul>
-
-        </div>
-        <div class="col span_2_of_3">
-            <ul id="ul"> <li><a id="navigation" href="schreiben.php" >neuer Beitrag</a></li></ul><br><br><br><br>
-            <?php
-            $user_id = $_SESSION['aktiveruser'];
-            echo 'user nr '$user_id' ist angemeldet.';
-
-            if(isset($_SESSION["angemeldet"]))
-            {
-                echo"angemeldet.";
-
-            }
-            else
-            {
-                echo"nicht angemeldet.";
-                die();
-            }
-            echo"<br>";
-            $content= $_POST["content"];
-            echo $content;
-
-            include 'database.php';
+                    <!-- Formular-->
+                  <!-- <div class="error" id="user-error">
+                        <img src="bilder/error.svg" alt="error_icon"/>
+                        Falsche Benutzername
+                    </div>
+                    <div class="error" id="pass-error">
+                        <img src="bilder/error.svg" alt="error_icon" />
+                        Falsches Passwort
+                    </div>-->
+                    <div class="form-row">
+                        <input type="text" class="form-control" name="Nutzername"  aria-describedby="emailHelp" placeholder="Benutzername" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="password" class="form-control" name="Passwort"  placeholder="Passwort" required>
+                    </div>
+                    <input type="submit" class="btn btn-primary" name="Login" value="Einloggen">
+                </form>
 
 
-            $statement = $pdo->prepare("SELECT * FROM posts");
-            if($statement->execute()) {
-                while($row=$statement->fetch()) {
-                    echo $row['POST_ID']." ".$row['TEXT']." ".$row['USER_ID'];
-                    echo "<a href=\"edit.php?id=".$row['POST_ID']."\">EDIT</a>";
-                    echo "<br>";
-                }
-            } else {
-                echo "Datenbank-Fehler:";
-                echo $statement->errorInfo()[2];
-                echo $statement->queryString;
-                die();
-            }
+                    <div class="bigger_text">Neu bei Loci? </div>
+                <form class="needs-validation" action="register.php" method="post" novalidate>
+                <input type="submit" class="btn btn-outline-primary" name="Register" value="Registrieren">
+                </form>
 
-            ?>
-        </div>
-        <div class="col span_3_of_3">
-            <li> NEWS BEREICH</li>
+                <!-- нужно переходить на страницу профиля-->
+            </div>
         </div>
     </div>
+</div>
 
 
-    </br>
-    </br>
-    </br>
-
-</main>
-<br>
-
-<main2>
-
-</main2>
-
-<footer>
-
-</footer>
 </body>
-
 </html>
