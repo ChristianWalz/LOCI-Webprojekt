@@ -13,7 +13,7 @@ if(isset($_SESSION['angemeldet'])) {
     $statement = $pdo->prepare("SELECT * FROM posts WHERE USER_ID='$user_id'");
     if ($statement->execute()) {
         while ($row = $statement->fetch()) {
-            echo $row['POST_ID'] . " " . $row['TEXT'] . " " . $row['USERNAME'] . " " . $row['USER_ID'];
+            echo $row['POST_ID'] . " " . $row['TEXT'] . " " . $row['USERNAME'];
 
 
             echo "<br>";

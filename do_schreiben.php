@@ -12,13 +12,9 @@ if(!isset($_SESSION["angemeldet"]))
     $user_id = $_SESSION['aktiveruser'];
     $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
     echo $text;
-
     include 'database.php';
-
-
     $statement = $pdo->prepare("INSERT INTO posts (USERNAME, USER_ID, TEXT) VALUES (?,?,?)");
     $statement->execute(array($nutzer_ausgelesen, $user_id, $text));
     echo " id in der Datenbank: ".$id=$pdo->lastInsertId();
 }
-
 ;

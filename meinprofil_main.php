@@ -10,7 +10,7 @@ include 'gather_profileimage.php';
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Neuigkeiten</title>
+    <title>Profil</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -75,29 +75,14 @@ include 'gather_profileimage.php';
 
             <div class="feed">
                 <br>
-                <div id="beitraege"><h2>Neuigkeiten</h2></div>
-                <!-- Buttons zur Auswahl was angezeigt werden soll-->
-                <script type="text/javascript">
-                    function show(elementId) {
-                        document.getElementById("hochschulweit").style.display="none";
-                        document.getElementById("studiengang").style.display="none";
-                        document.getElementById(elementId).style.display="block";
-                    }
-                </script>
+                <div id="beitraege"><h2>Profil</h2></div>
 
-                <button class="btn btn-secondary btn-lg" type="button" onclick="show('hochschulweit');">Hochschulweit</button>
-                <button class="btn btn-secondary btn-lg" type="button" onclick="show('studiengang');">Studiengangsrelevant</button>
-
-                <!--alle News anzeigen lassen durch einbinden des Codes in 'news_hochschule'-->
-                <div id="hochschulweit" style="font-size: 20px;">
-                    <?php include 'news_hochschule.php'
-                    ?>
+                <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
+                <div id="alle_beitraege" style="font-size: 20px;">
+                    <div><?php include 'meinprofil.php' ?></div>
                 </div>
 
-                <div id="studiengang" style="display:none; font-size: 20px;">
-                    <?php include 'news_studiengang.php'
-                    ?>
-                </div>
+
             </div>
         </div>
         <div class="col-sm-4">
@@ -132,6 +117,10 @@ include 'gather_profileimage.php';
 
 
 </html>
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@ if(isset($_SESSION['angemeldet'])) {
     echo "<br>";
     echo "<br>";
     echo $nutzer_ausgelesen.' '.$studiengang_ausgelesen.' '.$ueber;
-    echo "<a href='bearbeiten.php'  >Profil bearbeiten</a>";
+    echo "<a href='update_profile.php'  >Profil bearbeiten</a>";//da muss noch das Bildupload rein
 } else
 {
     echo"Du bist nicht angemeldet.";

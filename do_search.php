@@ -33,7 +33,7 @@ switch ($searchOption) {
 $sql = 'SELECT USER_ID, USERNAME, EMAIL, STUDIENGANG, NACHNAME, VORNAME, KUERZEL, UEBER FROM users WHERE lower(' . $searchField . ') LIKE "%' . $searchText . '%"';
 $posts = $pdo->query($sql)->fetchAll();
 
-var_dump($posts);
+
 ?>
 
 <table>
