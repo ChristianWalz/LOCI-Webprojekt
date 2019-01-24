@@ -17,7 +17,7 @@ include 'database.php';
 $statement = "UPDATE posts SET TEXT='" .$content. "' WHERE id=$id";
   if($ergebnis=$pdo->query($statement))
   {
-      header (  'Location:index.php');
+      header (  'Location:profile.php');
   }
   else{
       echo "Datenbank-Fehler";

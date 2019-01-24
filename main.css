@@ -8,13 +8,34 @@ nav {
 }
 /*PROFILBILD*/
 #user_img {
-    width: 215px;
+    width: 70%;
+    height: 70%;
     background: #aaa;
     margin: 0;
     -webkit-border-radius: 50% !important;
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
+
 }
+
+/*MENU*/
+
+#profile-usermenu {
+    padding-left:5px;
+    color:white;
+    font-size: 3em;
+
+
+}
+
+#profile-usermenu a {
+    font-size:25px;
+    color:black;
+
+}
+
+
+
 
 /*LOGO*/
 #logo {
@@ -155,8 +176,9 @@ nav {
     margin-top:0;
 }
 /*PROFILBILD*/
-#user_img {
-    height: 200px;
+.user_img {
+    height: 10%;
+    width:10%;
     background: #aaa;
     margin: 0;
     -webkit-border-radius: 50% !important;
@@ -256,6 +278,10 @@ nav {
 
 }
 
+.row div {
+    height:100%;
+
+}
 
 .space {
     margin-bottom: -20px;
