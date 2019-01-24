@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -16,7 +17,7 @@ session_start();
 <body>
 <div class="container">
     <div class="row profile">
-        <div class="main_nav">
+        <div class="col-md-3">
             <div class="profile-sidebar">
                 <!-- SIDEBAR Userimage -->
                 <div class="profile-img">
@@ -96,7 +97,6 @@ session_start();
                     function show(elementId) {
                         document.getElementById("hochschulweit").style.display="none";
                         document.getElementById("studiengang").style.display="none";
-
                         document.getElementById(elementId).style.display="block";
                     }
                 </script>

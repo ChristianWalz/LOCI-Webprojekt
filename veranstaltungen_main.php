@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <html lang="de">
@@ -17,7 +16,7 @@ session_start();
 <body>
 <div class="container">
     <div class="row profile">
-        <div class="main_nav">
+        <div class="col-md-3">
             <div class="profile-sidebar">
                 <!-- SIDEBAR Userimage -->
                 <div class="profile-img">
@@ -99,7 +98,6 @@ session_start();
                     function show(elementId) {
                         document.getElementById("alle_veranstaltungen").style.display="none";
                         document.getElementById("meine_veranstaltungen").style.display="none";
-
                         document.getElementById(elementId).style.display="block";
                     }
                 </script>
