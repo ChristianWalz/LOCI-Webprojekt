@@ -1,0 +1,134 @@
+
+nav {
+    display:flex;
+    align-content : center;
+}
+
+.container{
+
+    margin-top:0;
+}
+/*PROFILBILD*/
+#user_img {
+    height: 200px;
+    background: #aaa;
+    margin: 0;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+/*LOGO*/
+#logo {
+    height:30px;
+    width:auto;
+    margin:5px;
+
+}
+#flat_button {
+    margin:65px;
+}
+.btn-light {
+    background-color:#D3D3D3;
+}
+
+
+#nav_options {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-left: 8px;
+}
+
+/*Eingabefeld*/
+#input {
+    width: 350px;
+    height:50px;
+    margin:30px 30px 40px;
+    padding: 10px 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #cfcfcf;
+    -webkit-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+    -moz-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+    box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
+
+}
+/*Pseudoklasse :focus für Gloweffekt*/
+#input:focus {
+    outline:0;
+    border:1px solid #95D2DF;
+    -webkit-box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+    -moz-box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+    box-shadow: 0 0 5px 4px rgba(36,184,194, 0.10);
+}
+#new_post button {
+    margin-top: -50px;
+    margin-left: 280px;
+
+}
+.fa-cog {
+    color: #1da1f2;
+}
+
+#beitraege div{
+    position: relative;
+    height: 80px;
+
+}
+
+
+#beitraege div p{
+
+    margin-left: 30px;
+
+}
+
+
+
+#alle_beitraege div {
+    position: relative;
+    margin-left: 10px;
+
+
+
+}
+
+
+.abstand {
+    padding-top:20px;
+    padding-right:20px;
+    padding-left:20px;
+
+}
+
+
+.space {
+    margin-bottom: -20px;
+}
+
+.background {
+    background-image: url(/bilder/ZHI04.jpg);
+    background-position: bottom center;
+    background-attachment: scroll;
+    opacity:0.5;
+}
+@media (min-width: 1025px) {
+    .background{
+        background-repeat: no-repeat;
+        background-size:contain;
+        background-attachment:fixed;
+        opacity:0.5;
+
+    }
+}
+
+
+.container {
+
+    background-color: #669999;
+}
+
+.beitraege_iframe {
+    border: none;
+}

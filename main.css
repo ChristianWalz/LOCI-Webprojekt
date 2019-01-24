@@ -8,7 +8,7 @@ nav {
 }
 /*PROFILBILD*/
 #user_img {
-    height: 200px;
+    width: 215px;
     background: #aaa;
     margin: 0;
     -webkit-border-radius: 50% !important;
@@ -84,7 +84,7 @@ nav {
 
 
 
-#alle_beitraege div {
+#alle_beitraege {
     position: relative;
     margin-left: 10px;
 
@@ -130,8 +130,9 @@ nav {
 .container {
 
     background-color: #669999;
+    font-family: 'Aleo', serif;
+    height:2000px;
 }
-
 
 
 .logo {
@@ -142,8 +143,6 @@ nav {
     background-size: contain;
 
 }
-
-
 
 
 nav {
@@ -241,6 +240,14 @@ nav {
 
 }
 
+.post_img {
+    height: 50px;
+    background: #aaa;
+    margin: 0;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
 
 .abstand {
     padding-top:20px;
@@ -277,5 +284,41 @@ nav {
 }
 
 .beitraege_iframe {
+    position: relative;
     border: none;
+}
+
+.beitraege_iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-height: 520px;
+    }
+}
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+    .container {
+        max-height: 545px;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+    .container {
+        max-height: 440px;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .container {
+        max-height: 100%;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .container {
+        margin-bottom: 50px;
+    }
 }
