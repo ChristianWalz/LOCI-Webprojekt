@@ -59,11 +59,11 @@ include 'gather_profileimage.php';
                         <span> </span>
                   </div>-->
                     <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <p> <i class="fas fa-exchange-alt"></i> <a href="main.php" target="_blank"> Beiträge</a></p>
-                    <p> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" target="_blank"> Following</a></p>
-                    <p> <i class="fas fa-globe"></i> <a href="news_main.php" target="_blank"> Neuigkeiten</a></p>
+                    <p> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></p>
+                    <p> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></p>
+                    <p> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></p>
                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <p> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php" target="_blank"> Veranstaltungen</a></p>
+                    <p> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php" > Veranstaltungen</a></p>
                   <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
 
             </div>
