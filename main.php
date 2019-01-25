@@ -111,13 +111,15 @@ include 'gather_profileimage.php';
 
             <!--Eingabefeld-->
             <div class="form-group">
-                <div id="new_post"><form>
-                        <!--  Eingabefeld  -->
-                        <div class="form-group">
-                            <textarea id="input" class="form-control" style="width:80%;" rows="3" href="schreiben.php" placeholder="Teile etwas deinen Mitstudierenden mit..."></textarea>
-                        </div>
-                        <!--   Button  -->
-                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:46%; ">Posten</button> </form>
+                <div id="new_post">
+
+
+                    <form action="do_schreiben.php" method="post">
+        <textarea id=input name="TEXT" rows="10" cols="30" style="width:80%">
+        </textarea>
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:45%; ">Posten</button>
+
+                    </form>
                 </div>
             </div>
         </div>
