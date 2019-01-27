@@ -17,11 +17,11 @@ if(isset($_SESSION['angemeldet']))
     echo $content;
     include 'database.php';
     $statement = $pdo->prepare("SELECT * FROM posts p, following f WHERE p.USER_ID=f.FOLLOWER_ID AND
-    f.USER_ID='$user_id'");
+    f.USER_ID='$user_id' ORDER BY POST_ID DESC");
     if($statement->execute()) {
         while($row=$statement->fetch()) {
             echo $row['POST_ID']." ".$row['TEXT']." ".$row['USERNAME'];
-            echo "<a href=\"profil_fremd.php?id=".$row['USER_ID']."\">Zum Profil</a>";
+            echo "<a href=\"profil_fremd.php?id=".$row['FOLLOWER_ID']."\">Zum Profil</a>";
 
             echo "<br>";
         }

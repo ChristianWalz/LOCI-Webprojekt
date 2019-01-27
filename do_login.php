@@ -60,6 +60,13 @@ $result4 = $query->fetch(  PDO::FETCH_ASSOC);
 $ueber = $result4 ["UEBER"];
 $_SESSION['uber_text'] = $ueber;
 
+// Anzahl der verfolgten Beiträge auslesen und in Variable schreiben i
+
+$anzahl_alt = $pdo->query("select count(*) from posts p, following f WHERE p.USER_ID=f.FOLLOWER_ID AND
+    f.USER_ID='$user_id'")->fetchColumn();
+$_SESSION['anzahl_alt'] = $anzahl_alt;
+//echo $anzahl_alt;
+
 
 
 

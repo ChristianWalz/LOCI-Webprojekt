@@ -15,7 +15,7 @@ if(isset($_SESSION['angemeldet'])) {
     $content = $_POST["content"];
     echo $content;
     include 'database.php';
-    $statement = $pdo->prepare("SELECT * FROM posts");
+    $statement = $pdo->prepare("SELECT * FROM posts ORDER BY POST_ID DESC");
     if ($statement->execute()) {
         echo "<table style='border-style: solid; border-color: black;'>";
         while ($row = $statement->fetch()) {
