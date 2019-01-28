@@ -1,9 +1,11 @@
 <?php
 session_start();
+include 'header.html';
 $user_id = $_SESSION['aktiveruser'];
 $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
 $ueber=$_SESSION['uber_text'];
 $studiengang_ausgelesen = $_SESSION ['aktiveruser_studi'];
+$email_ausgelesen = $_SESSION ['aktiveruser_']:
 if(isset($_SESSION['angemeldet'])) {
     echo 'Dies ist dein Profil.';
     echo "<br>";
@@ -15,4 +17,5 @@ if(isset($_SESSION['angemeldet'])) {
     echo"Du bist nicht angemeldet.";
     die();
 }
+
 ?>

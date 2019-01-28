@@ -2,23 +2,45 @@
 session_start();
 $user_id = $_SESSION['aktiveruser'];
 $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
-/*echo"<br>";
-echo"<br>";
-$content= $_POST["content"];
-echo $content;
-include 'database.php';
-echo '<div class="container-fluid">';*/
 if(isset($_SESSION['angemeldet'])) {
     echo 'Hier siehst du alle Beiträge.';
-    echo "<br>";
-    echo "<br>";
+
     $content = $_POST["content"];
     echo $content;
     include 'database.php';
-    $statement = $pdo->prepare("SELECT * FROM posts ORDER BY POST_ID DESC");
+    $statement = $pdo->prepare("SELECT * FROM posts");
     if ($statement->execute()) {
-        echo "<table style='border-style: solid; border-color: black;'>";
         while ($row = $statement->fetch()) {
+            echo '<div class="container">';
+            echo '<div class="row">';
+            echo '<div class="col-sm-3">';
+            // get user image and show it
+            $userId = $row['USER_ID'];
+            $sql = "SELECT filename FROM profileimg WHERE USER_ID = $userId";
+            $foundProfileImage = $pdo->query($sql)->fetch();
+            if ($foundProfileImage) {
+                // if image found show image
+                $profileImagePath = $foundProfileImage['filename'];
+            } else {
+                // if no image found user default image
+                $profileImagePath = "bilder/default-user-profile-picture-3.png";
+            }
+            echo '<img class="post_img" src="' . $profileImagePath . '"/>';
+            echo '</div>';
+            echo '<div class="col-sm-9">';
+            echo '<div class="card">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $row['USERNAME'] . '</h5>';
+            echo '<p class="card-text">' . $row['TEXT'] . '</p>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+
+        }
+    }
+     /*   while ($row = $statement->fetch()) {
             echo"<tr>";
             while($row = $statement->fetch()) {
                 echo '<div class="row">';
@@ -33,7 +55,7 @@ if(isset($_SESSION['angemeldet'])) {
                     // if no image found user default image
                     $profileImagePath = "bilder/default-user-profile-picture-3.png";
                 }
-                echo '<img class=post_img src="' . $profileImagePath . '"/>';
+  //       echo '<img class=post_img src="' . $profileImagePath . '"/>';
                 echo '</div>';
                 echo "<td>",$row['POST_ID'], "</td>";
                 echo "<td>",$row['TEXT'],"</td>";
@@ -48,12 +70,8 @@ if(isset($_SESSION['angemeldet'])) {
                 echo "<br>";
             }
         }
-    }
-    else
-    {
-        echo"Du bist nicht angemeldet.";
-        die();
-    }
+    }*/
+
     // table header
     /*  echo '<div class="row">';
       echo '<div class="col-sm-1">Profilbild</div>';
@@ -79,3 +97,4 @@ if(isset($_SESSION['angemeldet'])) {
         echo '<div class="col-sm-1">' . $row['USER_ID'] . '</div>';
         echo '<div class="col-sm-1"><a href="profil_fremd.php?id=' . $row['USER_ID'] . '">Zum Profil</a></div>';
         echo '</div>';*/
+?>
