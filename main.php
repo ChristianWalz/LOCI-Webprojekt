@@ -86,6 +86,9 @@ include 'gather_profileimage.php';
 
                     <div class="feed">
                         <br>
+                        <!-- Benachrichtigung einfügen-->
+                        <?php include 'alert.php'
+                        ?>
                         <!-- Buttons zur Auswahl was angezeigt werden soll-->
 
                         <script type="text/javascript">

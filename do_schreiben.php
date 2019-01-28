@@ -15,6 +15,7 @@ if(!isset($_SESSION["angemeldet"]))
     include 'database.php';
     $statement = $pdo->prepare("INSERT INTO posts (USERNAME, USER_ID, TEXT) VALUES (?,?,?)");
     $statement->execute(array($nutzer_ausgelesen, $user_id, $text));
-    echo " id in der Datenbank: ".$id=$pdo->lastInsertId();
+    //echo " id in der Datenbank: ".$id=$pdo->lastInsertId();
+    header("Location: main.php");
 }
 ;

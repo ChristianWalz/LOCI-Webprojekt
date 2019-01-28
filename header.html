@@ -33,7 +33,23 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="community.php">Community</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Abmelden</a>
+                </li>
+
+                <li class="nav-item">
+                    <p id='zeit' style="border: 3px solid; border-color:darkgrey;padding: 7px;position: absolute;right: 3em; top: 6px;font-size: 17px;color:ghostwhite;"></p>
+                    <script>
+                        var myVar = setInterval(myTimer, 1000);
+
+                        function myTimer() {
+                            var d = new Date();
+                            document.getElementById('zeit').innerHTML = d.toLocaleTimeString();
+                        }
+                    </script>
                 </li>
         </ul>
     </div>
