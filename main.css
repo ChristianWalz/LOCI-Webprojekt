@@ -3,7 +3,6 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif!important;
     font-weight: bolder;
 }
-
 nav {
     display:flex;
     align-content : center;
@@ -15,12 +14,16 @@ nav {
     width: 100%;
     z-index: 1000;
 }
-
 .container {
     padding-top: 30px;
     margin-top: 0;
     background-color:#E6e6Fa;
     height:2000px;
+}
+
+.col-sm-3 {
+    height:100%;
+
 }
 /*PROFILBILD*/
 #user_img {
@@ -33,7 +36,6 @@ nav {
     border-radius: 50% !important;
 
 }
-
 /*MENU*/
 #profile-usermenu {
     padding-left:5px;
@@ -60,6 +62,8 @@ nav {
     margin: 0;
     padding: 0;
     list-style: none;
+    float:none;
+    width:95%;
 }
 
 #profile-usermenu ul li {
@@ -74,8 +78,6 @@ nav {
 #profile-usermenu ul li a:hover {
     background: #aaa;
 }
-
-
 @media screen and (max-width: 640px) {
 
     #profile-usermenu {
@@ -99,12 +101,10 @@ nav {
     }
 
 }
-
 a.nav-link{
 font-weight: bold;
 }
 /*LOGO*/
-
 .logo {
     width: 70%;
     height: 100px;
@@ -113,18 +113,14 @@ font-weight: bold;
     background-size: contain;
 
 }
-
 .btn-light {
     background-color:#D3D3D3;
 }
-
-
 #nav_options {
     flex: 0 0 auto;
     justify-content: flex-end;
     margin-left: 8px;
 }
-
 /*Eingabefeld*/
 #input {
     background-color: #e1e3ea;
@@ -243,12 +239,14 @@ font-weight: bold;
 
 .post_img {
     height: 100px;
+    width:100px;
     background: #aaa;
     margin: 0;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-}
+   }
+
 
 .abstand {
     padding-top:20px;
