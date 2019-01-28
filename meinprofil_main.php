@@ -1,11 +1,10 @@
 <?php
 session_start();
-include 'header.html';
+include 'gather_profileimage.php';
 $user_id = $_SESSION['aktiveruser'];
 $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
 $studiengang_ausgelesen = $_SESSION ['aktiveruser_studi'];
 $ueber=$_SESSION['uber_text'];
-include 'gather_profileimage.php';
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -17,90 +16,56 @@ include 'gather_profileimage.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link href="bootstrap-4.1.3-dist/css" rel="stylesheet" id="bootstrap-css">
-    <script src="bootstrap-4.1.3-dist/js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <!--<script> function toggleSidebar() {
-            document.getElementById ("profile-usermenu").classList.toggle('active');}</script>-->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body background="bilder/hintergrund.jpg">
-
-<div class="container">
+<?php
+include 'header.html';
+?>
+<body>
+<div style="background-color:white;">
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
-    <div class="row">
-        <div class="col-sm-3">
-
-            <!-- SIDEBAR Userimage -->
-            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
-            <div class="profile-img">
-                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
-            </div>
-
-            <!-- END SIDEBAR Userimage -->
-            <div id="benutzer_name">
-                <h2>
-                    <?php
-
-                    echo $nutzer_ausgelesen;
-                    ?>
-                </h2>
-
-            </div>
-            <br>
-            <br>
-
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <!--HAMBURGER Menu -->
-                <!--  <div class= "toggle-btn" onclick="toggleSidebar()">
-                        <span> </span>
-                        <span> </span>
-                        <span> </span>
-                  </div>-->
-                <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                <p> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></p>
-                <p> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></p>
-                <p> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></p>
-                <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                <p> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php" > Veranstaltungen</a></p>
-                <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-        </div>
-        <div class="col-sm-5">
-
-            <!-- Darstellung der Beiträge-->
-
-            <div class="feed">
-                <br>
-                <div id="beitraege"><h2>Profil</h2></div>
-
-                <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
-                <div id="alle_beitraege" style="font-size: 20px;">
-                    <div><?php include 'meinprofil.php' ?></div>
-                </div>
-
-
-            </div>
-        </div>
-        <div class="col-sm-4">
-
-            <!--Eingabefeld-->
-            <div class="form-group">
-                <div id="new_post"><form>
-                        <!--  Eingabefeld  -->
-                        <div class="form-group">
-                            <textarea id="input" class="form-control" style="width:80%;" rows="3" href="schreiben.php" placeholder="Teile etwas deinen Mitstudierenden mit..."></textarea>
+    <div class="feed shadow-lg"
+        <div class="card-layout" style="background-color:#E6e6Fa;">
+            <h4 class="card-layout-header"><?php echo " Mein Profil"; ?></h4>
+    <!--    <h4 class="card-layout-header"><?php echo " $nutzer_ausgelesen"; ?></h4>-->
+            <div class="card-body">
+                <div class="card-body feed-background">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- SIDEBAR Userimage -->
+                                <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+                                <div class="profile-img">
+                                    <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+                                </div>
+                                <div class="nav nav-pills flex-column" id="profile-usermenu">
+                                    <p> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></p>
+                                    <p> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></p>
+                                    <p> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></p>
+                                    <p> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></p>
+                                </div><!-- END SIDEBAR Userimage -->
+                            </div>
+                            <div class="col-md-9">
+                                <?php include 'profildaten.php'; ?>
+                                <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="<?php echo 'https://mars.iuk.hdm-stuttgart.de/~oh019/do_follow.php?id='."$user_id";?>">Follow</button>
+                            </div>
+                            <div id="aktiveruser_ueber">
+                                <h2>
+                                    <?php
+                                    echo $ueber;
+                                    ?>
+                                </h2>
+                            </div>
                         </div>
-                        <!--   Button  -->
-                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:46%; ">Posten</button> </form>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
-
+        <!-- END SIDEBAR BUTTONS -->
 </div>
 
 <footer>

@@ -1,10 +1,25 @@
+body {
+    background-color: #eeeff0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif!important;
+}
+
 nav {
     display:flex;
     align-content : center;
+    background: linear-gradient(to left,rgba(54,194,182,0.96) 0,rgba(62,188,207,0.96) 100%);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  /*  display: block;*/
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .container {
+    padding-top: 30px;
     margin-top: 0;
+    background-color:#E6e6Fa;
+    height:2000px;
 }
 /*PROFILBILD*/
 #user_img {
@@ -19,34 +34,85 @@ nav {
 }
 
 /*MENU*/
-
 #profile-usermenu {
     padding-left:5px;
-    color:white;
-    font-size: 3em;
+    color:#b0C4de;
+    position: relative;
+    float: left;
+    width: 70%;
+    margin: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 5px #F0F8FF;
+    -moz-box-shadow: 0 0 5px #F0F8FF;
+    box-shadow: 0 0 5px #F0F8FF;
+}
 
+#profile-usermenu ul, a {
+    font-size:15px;
+    color:#4682B4;
+    list-style: none;
+    margin-left:20px;
+}
+
+#profile-usermenu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#profile-usermenu ul li {
+    float: left;
+}
+
+#profile-usermenu ul li a {
+    display: block;
+    text-decoration: none;
+}
+
+#profile-usermenu ul li a:hover {
+    background: #aaa;
+}
+
+#profile-usermenu i {
 
 }
 
-#profile-usermenu a {
-    font-size:25px;
-    color:black;
+@media screen and (max-width: 640px) {
+
+    #profile-usermenu {
+        position: relative;
+        top: 0;
+        left: 0;
+        float: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+
+    #nav ul li {
+        float: none;
+        text-align: center;
+        border-bottom: 1px solid #555;
+    }
 
 }
-
-
-
 
 /*LOGO*/
-#logo {
-    height:30px;
-    width:auto;
-    margin:5px;
+
+.logo {
+    width: 70%;
+    height: 100px;
+    margin-left: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
 
 }
-#flat_button {
-    margin:65px;
-}
+
 .btn-light {
     background-color:#D3D3D3;
 }
@@ -60,6 +126,7 @@ nav {
 
 /*Eingabefeld*/
 #input {
+    background-color: #e1e3ea;
     width: 350px;
     height:50px;
     margin:30px 30px 40px;
@@ -84,6 +151,14 @@ nav {
 #new_post button {
     margin-top: -50px;
     margin-left: 280px;
+    background-color: #39CCCC;
+    font-size: 1.3em; padding: 5px 12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    color: teal;
+    border: 1px solid silver;
+    background-image: linear-gradient(to top, gainsboro 0%, white 90%);
+    border-radius: 20px;
 
 }
 .fa-cog {
@@ -96,47 +171,12 @@ nav {
 
 }
 
-
 #beitraege div p{
 
     margin-left: 30px;
 
 }
 
-
-
-#alle_beitraege {
-    position: relative;
-    margin-left: 10px;
-
-
-}
-
-
-.abstand {
-    padding-top:20px;
-    padding-right:20px;
-    padding-left:20px;
-
-}
-
-
-.space {
-    margin-bottom: -20px;
-}
-
-.feed {
-    margin-bottom: -30px;
-
-
-}
-
-.background {
-    background-image: url(/bilder/ZHI04.jpg);
-    background-position: bottom center;
-    background-attachment: scroll;
-    opacity:0.5;
-}
 @media (min-width: 1025px) {
     .background{
         background-repeat: no-repeat;
@@ -147,34 +187,6 @@ nav {
     }
 }
 
-
-.container {
-
-    background-color: #669999;
-    font-family: 'Aleo', serif;
-    height:2000px;
-}
-
-
-.logo {
-    width: 70%;
-    height: 100px;
-    margin-left: 15px;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-}
-
-
-nav {
-    display:flex;
-    align-content : center;
-}
-
-.container{
-
-    margin-top:0;
-}
 /*PROFILBILD*/
 .user_img {
     height: 10%;
@@ -189,22 +201,12 @@ nav {
 /*LOGO*/
 #logo {
     height:30px;
-    width:auto;
+    width:50px;
     margin:5px;
 
 }
 #flat_button {
     margin:65px;
-}
-.btn-light {
-    background-color:#D3D3D3;
-}
-
-
-#nav_options {
-    flex: 0 0 auto;
-    justify-content: flex-end;
-    margin-left: 8px;
 }
 
 /*Eingabefeld*/
@@ -220,7 +222,6 @@ nav {
     -webkit-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
     -moz-box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
     box-shadow: inset 0 0 4px 2px rgba(0,0,0, 0.1);
-
 }
 /*Pseudoklasse :focus für Gloweffekt*/
 #input:focus {
@@ -239,36 +240,13 @@ nav {
     color: #1da1f2;
 }
 
-#beitraege div{
-    position: relative;
-    height: 80px;
-
-}
-
-
-#beitraege div p{
-
-    margin-left: 30px;
-
-}
-
-
-
-#alle_beitraege div {
-    position: relative;
-    margin-left: 10px;
-
-
-
-}
-
 .post_img {
-    height: 50px;
+    height: 100px;
     background: #aaa;
     margin: 0;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .abstand {
@@ -280,15 +258,9 @@ nav {
 
 .row div {
     height:100%;
-
-}
-
-.space {
-    margin-bottom: -20px;
 }
 
 .background {
-    background-image: url(/bilder/ZHI04.jpg);
     background-position: bottom center;
     background-attachment: scroll;
     opacity:0.5;
@@ -302,26 +274,6 @@ nav {
 
     }
 }
-
-
-.container {
-
-    background-color: #669999;
-}
-
-.beitraege_iframe {
-    position: relative;
-    border: none;
-}
-
-.beitraege_iframe iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .container {
@@ -348,3 +300,142 @@ nav {
         margin-bottom: 50px;
     }
 }
+
+/* HEADER CSS */
+
+html {
+    font-size: 100%;
+    height: auto !important;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;}
+* {margin: 0;padding: 0;outline: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+*:after, *:before { -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+
+/*NAV*/
+nav > ul > li a + div {
+    background: linear-gradient(to bottom,rgba(58,162,173,1) 0,rgba(62,188,207,0.96) 100%);;
+    border-radius: 0 0 2px 2px;
+    box-shadow: 0 3px 1px rgba(0,0,0,.05);
+    display: none;
+    font-size: 1rem;
+    position: absolute;
+    width: 195px;
+}
+header > nav > ul > li {
+    flex: 0 1 auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: all linear 0.1s;
+}
+
+header > nav > ul > li:hover {
+    background: rgba(58,162,173,1);
+}
+header > nav > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header > nav > ul > li > a {
+    align-items: flex-start;
+    color: #fff;
+    display: flex;
+    font-size: 1.55rem;
+    font-weight: 200;
+    letter-spacing: 2px;
+    max-width: 130px;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0,0,0,.1);
+    transition: all linear 0.1s;
+}
+/*SEARCHBOX*/
+ select{
+    width: 90px;
+    height: 38px;
+    background: white;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#search-button {
+    padding-right:10px;
+    margin-left:5px;
+    height:38px;
+
+}
+
+#searchblock {
+    padding-top:5px;
+
+}
+
+/*PROFIL CSS*/
+.card-layout {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+
+}
+
+.card-layout-header {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #17a2b8;
+    background-clip: border-box;
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-left: 0.2rem;
+    padding-right: 0.12em;
+    border-radius: 0.5rem;
+    margin-bottom: 10px;
+
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid;
+    border-color: #1b1e21;
+    border-radius: 0.5rem;
+
+}
+
+
