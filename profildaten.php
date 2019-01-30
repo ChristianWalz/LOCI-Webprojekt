@@ -13,5 +13,8 @@ if ($statement->execute()) {
         echo '<div>'. '<h5>'.'Email: ' . $row['EMAIL'] . '</h5>'.'</div>';
         echo '<div>' . '<h5>'.'Kürzel: '. $row['KUERZEL'] . '</h5>'.'</div>';
         echo '<div>'. '<h5>'.'Über mich: ' . $row['UEBER'] . '</h5>'.'</div>';
+        echo '<br>';
+        echo "<a href='update_profile.php'  >Profil bearbeiten</a>";
     }
 }
+?>

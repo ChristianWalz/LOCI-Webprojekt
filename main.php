@@ -5,7 +5,15 @@ $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
 $studiengang_ausgelesen = $_SESSION ['aktiveruser_studi'];
 $ueber=$_SESSION['uber_text'];
 include 'gather_profileimage.php';
+if(!isset($_SESSION["angemeldet"]))
+{
+    echo"nicht angemeldet.";
+    header("Location: index.php");
+    die();
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -85,7 +93,8 @@ include 'gather_profileimage.php';
                     <!-- Darstellung der Beiträge-->
 
                     <div class="feed">
-                        <br>
+
+                        <div id="beitraege"><h2>Beiträge</h2></div><br>
                         <!-- Benachrichtigung einfügen-->
                         <?php include 'alert.php'
                         ?>
@@ -148,6 +157,7 @@ include 'gather_profileimage.php';
 
 
 </html>
+
 
 
 

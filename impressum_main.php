@@ -1,34 +1,47 @@
+
 <?php
 session_start();
-include 'header.html';
 $user_id = $_SESSION['aktiveruser'];
 $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
 $studiengang_ausgelesen = $_SESSION ['aktiveruser_studi'];
 $ueber=$_SESSION['uber_text'];
 include 'gather_profileimage.php';
+if(!isset($_SESSION["angemeldet"]))
+{
+    echo"nicht angemeldet.";
+    header("Location: index.php");
+    die();
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Impressum</title>
+    <title>Willkommen bei Loci</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link href="bootstrap-4.1.3-dist/css" rel="stylesheet" id="bootstrap-css">
-    <script src="bootstrap-4.1.3-dist/js"></script>
     <link rel="stylesheet" href="main.css">
+    <!--<link rel="stylesheet" href="header.css">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--<script> function toggleSidebar() {
             document.getElementById ("profile-usermenu").classList.toggle('active');}</script>-->
 </head>
-<body background="bilder/hintergrund.jpg">
+
+<?php
+include 'header.html';
+?>
+<body>
 
 <div class="container">
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row">
+
+
         <div class="col-sm-3">
 
             <!-- SIDEBAR Userimage -->
@@ -52,56 +65,47 @@ include 'gather_profileimage.php';
             <br>
 
             <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <!--HAMBURGER Menu -->
-                <!--  <div class= "toggle-btn" onclick="toggleSidebar()">
-                        <span> </span>
-                        <span> </span>
-                        <span> </span>
-                  </div>-->
-                <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                <p> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></p>
-                <p> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></p>
-                <p> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></p>
-                <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                <p> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php" > Veranstaltungen</a></p>
-                <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-
+                <ul>
+                    <!--MENU -->  <!-- SIDEBAR BUTTONS -->
+                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
+                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
+                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
+                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
+                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
+                    <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
+                </ul>
             </div>
             <!-- END SIDEBAR BUTTONS -->
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-9">
 
             <!-- Darstellung der Beiträge-->
 
             <div class="feed">
-                <br>
-                <div id="beitraege"><h2></h2></div>
+
+                <div id="beitraege"></div>
+                <!-- Benachrichtigung einfügen-->
+                <?php include 'alert.php'
+                ?>
+                <!-- Buttons zur Auswahl was angezeigt werden soll-->
 
                 <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
                 <div id="alle_beitraege" style="font-size: 20px;">
                     <div><?php include 'impressum.php' ?></div>
                 </div>
 
-
             </div>
         </div>
         <div class="col-sm-4">
 
             <!--Eingabefeld-->
-            <div class="form-group">
-                <div id="new_post"><form>
-                        <!--  Eingabefeld  -->
-                        <div class="form-group">
-                            <textarea id="input" class="form-control" style="width:80%;" rows="3" href="schreiben.php" placeholder="Teile etwas deinen Mitstudierenden mit..."></textarea>
-                        </div>
-                        <!--   Button  -->
-                        <button type="submit" class="btn btn-primary btn-lg" style="margin-left:46%; ">Posten</button> </form>
-                </div>
-            </div>
+
         </div>
     </div>
 
 </div>
+
+
 
 <footer>
 
@@ -117,6 +121,7 @@ include 'gather_profileimage.php';
 
 
 </html>
+
 
 
 

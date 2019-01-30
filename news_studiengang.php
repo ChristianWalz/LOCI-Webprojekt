@@ -11,11 +11,11 @@ echo "<br>";
 $content = $_POST["content"];
 echo $content;
 include 'database.php';
-$statement = $pdo->prepare("SELECT INHALT FROM news WHERE ATTRIBUT ='$studiengang_ausgelesen'");
+$statement = $pdo->prepare("SELECT INHALT FROM news WHERE ATTRIBUT ='$studiengang_ausgelesen' ORDER BY NEWS_ID DESC");
 if($statement->execute()) {
     while ($row = $statement->fetch()) {
         echo $row['INHALT'];
-
+        echo "<br>";
         echo "<br>";
     }
 }

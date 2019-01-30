@@ -4,30 +4,39 @@ $user_id = $_SESSION['aktiveruser'];
 $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
 $id_fremd = $_GET['id'];  //Zieht den Parameter aus der URL
 include 'database.php';
-//Auslesen des fremden Nutzernamens und die Definierung der zugehörigen Variablen
-$query =  $pdo->prepare ( "SELECT USERNAME FROM users WHERE USER_ID='$id_fremd'");
-$query->execute(array(':id_fremd'=>$id_fremd ));
-$result = $query->fetch(  PDO::FETCH_ASSOC);
-$name_fremd = $result ["USERNAME"];
-echo $name_fremd;
+
+
+$statement = $pdo->prepare("SELECT * FROM users WHERE USER_ID = $id_fremd");
+if ($statement->execute()) {
+    while ($row = $statement->fetch()) {
+
+        echo '<div class="col-sm-3">';
+        // get user image and show it
+        $userId = $row['USER_ID'];
+        $sql = "SELECT filename FROM profileimg WHERE USER_ID = $userId";
+        $foundProfileImage = $pdo->query($sql)->fetch();
+        if ($foundProfileImage) {
+            // if image found show image
+            $profileImagePath = $foundProfileImage['filename'];
+        } else {
+            // if no image found user default image
+            $profileImagePath = "bilder/default-user-profile-picture-3.png";
+        }
+        echo '<img class="post_img" src="' . $profileImagePath . '"/>';
+        echo '</div>';
+
+        echo '<div>'.'<h5>'. 'Username: '. $row['USERNAME'] .'</h5>'. '</div>';
+        echo '<div>' . '<h5>'.'Vorname: '. $row['VORNAME'] . '</h5>'.'</div>';
+        echo '<div>' . '<h5>'.'Nachname: '. $row['NACHNAME'] . '</h5>'.'</div>';
+        echo '<div>'. '<h5>'.'Studiengang: ' . $row['STUDIENGANG'] . '</h5>'.'</div>';
+        echo '<div>'. '<h5>'.'Email: ' . $row['EMAIL'] . '</h5>'.'</div>';
+        echo '<div>' . '<h5>'.'Kürzel: '. $row['KUERZEL'] . '</h5>'.'</div>';
+        echo '<div>'. '<h5>'.'Über mich: ' . $row['UEBER'] . '</h5>'.'</div>';
+
+
+    }
+}
+echo "<a href=\"do_follow.php?id=".$id_fremd."\" style='position: absolute;right: 1em; bottom: 5%; '>Folgen</a>";
 echo '<br>';
-//Auslesen des fremden Studiengangs und die Definierung der zugehörigen Variablen
-$query =  $pdo->prepare ( "SELECT STUDIENGANG FROM users WHERE USER_ID='$id_fremd'");
-$query->execute(array(':id_fremd'=>$id_fremd ));
-$result2 = $query->fetch(  PDO::FETCH_ASSOC);
-$studi_fremd = $result2 ["STUDIENGANG"];
-echo $studi_fremd;
-echo '<br>';
-//Auslesen des fremden "Übr-Mich-Textes" und die Definierung der zugehörigen Variablen
-$query =  $pdo->prepare ( "SELECT UEBER FROM users WHERE USER_ID='$id_fremd'");
-$query->execute(array(':id_fremd'=>$id_fremd ));
-$result3 = $query->fetch(  PDO::FETCH_ASSOC);
-$ueber_fremd = $result3 ["UEBER"];
-echo $ueber_fremd;
-echo '<br>';
-$profilbild ='Profilbild_' .$id_fremd.'.png';
-echo '<p><img src=$profilbild /></p>';
-echo "<a href=\"do_follow.php?id=".$id_fremd."\">Folgen</a>";
-echo '<br>';
-echo "<a href=\"do_unfollow.php?id=".$id_fremd."\">Entolgen</a>";
+echo "<a href=\"do_unfollow.php?id=".$id_fremd."\" style='position: absolute;right: 1em; bottom: 0%; '>Entolgen</a>";
 ?>

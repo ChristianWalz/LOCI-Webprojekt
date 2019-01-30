@@ -44,6 +44,7 @@ $posts = $pdo->query($sql)->fetchAll();
     <th>Nachname</th>
     <th>Kürzel</th>
     <th>Über</th>
+
     <?php
     foreach ($posts as $post) {
         echo '<tr>';
@@ -54,8 +55,10 @@ $posts = $pdo->query($sql)->fetchAll();
         echo '<td>' . $post['NACHNAME'] . '</td>';
         echo '<td>' . $post['KUERZEL'] . '</td>';
         echo '<td>' . $post['UEBER'] . '</td>';
+
     //  echo '<td colspan="4"></td>';
         echo '</tr>';
+
     }
     ?>
 </table>

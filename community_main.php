@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 $user_id = $_SESSION['aktiveruser'];
@@ -83,14 +81,20 @@ include 'header.html';
             <!-- Darstellung der Beiträge-->
 
             <div class="feed">
+
+                <div id="beitraege"><h2>Community</h2></div><br>
                 <!-- Benachrichtigung einfügen-->
                 <?php include 'alert.php'
                 ?>
-                <div id="beitraege"><h2>Besuchtes Profil von: </h2></div><br>
 
-                <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
+
+
+                <!--alle Mitglieder anzeigen lassen durch einbinden des Codes in 'community.php'-->
+
+
+
                 <div id="alle_beitraege" style="font-size: 20px;">
-                    <div><?php include 'profil_fremd.php' ?></div>
+                    <div><?php include 'community.php' ?></div>
                 </div>
 
 

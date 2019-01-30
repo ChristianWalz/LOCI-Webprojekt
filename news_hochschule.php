@@ -7,10 +7,11 @@ echo "<br>";
 $content = $_POST["content"];
 echo $content;
 include 'database.php';
-$statement = $pdo->prepare("SELECT INHALT FROM news WHERE ATTRIBUT = 'HS'");
+$statement = $pdo->prepare("SELECT INHALT FROM news WHERE ATTRIBUT = 'HS' ORDER BY NEWS_ID DESC");
 if($statement->execute()) {
     while ($row = $statement->fetch()) {
         echo $row['INHALT'];
+        echo "<br>";
         echo "<br>";
     }
 }

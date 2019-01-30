@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['angemeldet']))
+{
+    header("Location: main.php");
+}
 /*if (isset($_SESSION['eingelogt'])) {
     header('Location: main.php');      // Benutzer ist bereits eingeloggt und wird zum Feed weitergeleitet
     exit;
