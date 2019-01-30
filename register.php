@@ -13,115 +13,7 @@ include_once 'database.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--  css -->
     <link href="index.css" rel="stylesheet">
- <!--   <script src="javascript.js"></script>-->
-
-    <script>
-
-        // SELECTING ALL TEXT ELEMENTS
-        var Vorname = document.forms['valform']['Vorname'];
-        var Nachname = document.forms['valform']['Nachname'];
-        var username = document.forms['valform']['username'];
-        var Kuerzel = document.forms['valform']['Kuerzel'];
-        var email = document.forms['valform']['email'];
-        var Studiengang = document.forms['valform']['Studiengang'];
-        var password = document.forms['valform']['password'];
-        var password_confirm = document.forms['valform']['password_confirm'];
-        // SELECTING ALL ERROR DISPLAY ELEMENTS
-
-        var vorname_fehler = document.forms['valform']['vorname_fehler'];
-        var nachname_fehler = document.forms['valform']['nachname_fehler'];
-        var username_error = document.forms['valform']['username_error'];
-        var kuerzel_fehler = document.forms['valform']['kuerzel_fehler'];
-        var email_error = document.forms['valform']['email_error'];
-        var studiengang_fehler = document.forms['valform']['studiengang_fehler'];
-        var password_error = document.forms['valform']['password_error'];
-
-        // SETTING ALL EVENT LISTENERS
-        username.addEventListener('blur', nameVerify, true);
-        Vorname.addEventListener('blur', nameVerify, true);
-        Nachname.addEventListener('blur', nameVerify, true);
-        Kuerzel.addEventListener('blur', nameVerify, true);
-        email.addEventListener('blur', emailVerify, true);
-        password.addEventListener('blur', passwordVerify, true);
-        Studiengang.addEventListener('blur', nameVerify, true);
-        // validation function
-        function Validate() {
-// validate username
-            if (username.value == "") {
-                username.style.border = "1px solid red";
-                document.getElementById('username_div').style.color = "red";
-                username_error.textContent = "Benutzername ist erforderlich";
-                username.focus();
-                return false;
-            }
-// validate username
-            if (username.value.length < 3) {
-                username.style.border = "1px solid red";
-                document.getElementById('username_div').style.color = "red";
-                username.focus();
-                return false;
-            }
-// validate email
-            if (email.value == "") {
-                email.style.border = "1px solid red";
-                document.getElementById('email_div').style.color = "red";
-                email_error.textContent = "Email ist erforderlich";
-                email.focus();
-                return false;
-            }
-// validate password
-            if (password.value == "") {
-                password.style.border = "1px solid red";
-                document.getElementById('password_div').style.color = "red";
-                password_confirm.style.border = "1px solid red";
-                password_error.textContent = "Passwort ist erforderlich";
-                password.focus();
-                return false;
-            }
-// check if the two passwords match
-            if (password.value != password_confirm.value) {
-                password.style.border = "1px solid red";
-                document.getElementById('pass_confirm_div').style.color = "red";
-                password_confirm.style.border = "1px solid red";
-                password_error.innerHTML = "Die Passwörter stimmen nicht überein";
-                return false;
-            }
-        }
-        // event handler functions
-        function nameVerify() {
-            if (username.value != "") {
-                username.style.border = "1px solid #5e6e66";
-                document.getElementById('username_div').style.color = "#5e6e66";
-                name_error.innerHTML = "";
-                return true;
-            }
-        }
-        function emailVerify() {
-            if (email.value != "") {
-                email.style.border = "1px solid #5e6e66";
-                document.getElementById('email_div').style.color = "#5e6e66";
-                email_error.innerHTML = "";
-                return true;
-            }
-        }
-        function passwordVerify() {
-            if (password.value != "") {
-                password.style.border = "1px solid #5e6e66";
-                document.getElementById('pass_confirm_div').style.color = "#5e6e66";
-                document.getElementById('password_div').style.color = "#5e6e66";
-                password_error.innerHTML = "";
-                return true;
-            }
-            if (password.value === password_confirm.value) {
-                password.style.border = "1px solid #5e6e66";
-                document.getElementById('pass_confirm_div').style.color = "#5e6e66";
-                password_error.innerHTML = "";
-                return true;
-            }
-        }
-
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -132,35 +24,45 @@ include_once 'database.php';
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 signup_section">
                 <div class="register_form">
-                    <form action="do_register.php" method="POST" class="form" onsubmit="return Validate() " name="valform"> <!--das Formular muss beim Abschicken  nicht validiert werden:-->
-                        <div class="willkommen"><h1>Willkommen bei LOCI</h1></div>
+                    <div class="willkommen"><h4>Willkommen bei LOCI</h4></div>
+                    <form action="do_register.php" method="POST" class="form" id="reg_form" name="valform"> <!--das Formular muss beim Abschicken  nicht validiert werden:-->
 
-                        <div class="form-row" id="Vorname_div" >
-                            <input type="text" class="form-control" name="Vorname" placeholder="Vorname" >
-                            <div id="vorname_fehler"></div>
+                        <div class="form-row">
+                            <input type="text" class="form-control" id="form_name" name="Vorname" placeholder="Vorname" required
+                                   pattern="^[a-zA-Z]{2,20}$"
+                                   title="Dieses Feld darf nur Buchstaben enthalten und muss länger als ein Buchstabe sein!">
+                            <span class="error_form" id="name_error_message"></span>
                         </div>
-                        <div class="form-row" id="Nachname_div" >
-                            <input type="text" class="form-control" name="Nachname"  placeholder="Nachname">
-                            <div id="nachname_fehler"></div>
+                        <div class="form-row">
+                            <input type="text" class="form-control" id="form_lastname" name="Nachname"  placeholder="Nachname" required
+                                   pattern="^[a-zA-Z]{2,20}$"
+                                   title="Dieses Feld darf nur Buchstaben enthalten und muss länger als ein Buchstabe sein!">
+                            <span class="error_form" id="lastname_error_message"></span>
                         </div>
-                        <div class="form-row" id="Kuerzel_div">
-                            <input type="text" class="form-control" name="Kuerzel" placeholder="Kürzel">
-                            <div id="kuerzel_fehler"></div>
+                        <div class="form-row">
+                            <input type="text" class="form-control" id="form_shortcut" name="Kuerzel" placeholder=" Kürzel " required
+                                   pattern="^[a-zA-Z0-9]{4,6}$"
+                                   title="Eingabe im folgenden Format: ow033">
+                            <span class="error_form" id="shortcut_error_message"></span>
                         </div>
-                        <div class="form-row" id="username_div">
-                            <input type="text" class="form-control" name="Username" placeholder="Benutzername">
-                            <div id="name_error"></div>
+                        <div class="form-row">
+                            <input type="text" class="form-control" id="form_username" name="Username" placeholder="Benutzername" required
+                                   pattern="^[a-zA-Z0-9]{6,20}$"
+                                   title="Benutzername muss mindestens 6 Zeichen lang sein und darf nur Buchstaben und Ziffer enthalten!">
+                            <span class="error_form" id="username_error_message"></span>
                         </div>
-                        <div class="form-row" id="email_div">
-                            <input type="email" class="form-control" name="Email" placeholder="Email">
-                            <div id="email_error"></div>
+                        <div class="form-row">
+                            <input type="email" class="form-control" id="form_email" name="Email" placeholder="Email" required
+                                   pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                   title="Bitte gebe eine gültige E-Mail Adresse ein!">
+                            <span class="error_form" id="email_error_message"></span>
                         </div>
                         <!--<div class="form-row">
                              <input type="email" class="form-control" id="re_mail" placeholder="Email wiederholden" required>
                          </div>-->
-                        <div class="form-row" id="studiengang_div">
-
-                            <select name="Studiengang" class="form-control">
+                        <div class="form-row">
+                            <select name="Studiengang" class="form-control" id="form_course" required=""
+                                    title="Bitte wähle deinen Studiengang aus!">
                                 <option>Studiengang auswählen</option>
                                 <option value="AM3">AM3</option>
                                 <option value="AM7">AM7</option>
@@ -201,36 +103,238 @@ include_once 'database.php';
                                 <option value="WI7">WI7</option>
                                 <option value="WM7">WM7</option>
                             </select>
+                            <span class="error_form" id="course_error_message"></span>
                         </div>
 
-                        <div class="form-row" id="password_div">
-                            <!-- <input type="password" class="form-control" name="Passwort" id="password" placeholder="Passwort" required>-->
-                            <input type="password" class="form-control" placeholder="Passwort" name="Passwort"/>
-                            <!-- die Angaben werden in Elementattribut 'pattern' werden mit dem der Browser überprüft pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
-                            <!--<input type="button" value="Submit" onclick="analyze()"-->
-
-                            <!--eingegebene Daten analysieren-->
+                        <div class="form-row">
+                            <input type="password" class="form-control" id="form_password" placeholder="Passwort" name="Passwort" required
+                                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+                                   title="Muss mindestens eine Zahl sowie einen Groß- und Kleinbuchstaben sowie mindestens 8 Zeichen enthalten. ">
+                            <span class="error_form" id="password_error_message"></span>
                         </div>
-                        <div class="form-row" id="pass_confirm_div">
-                            <input type="password" class="form-control" placeholder="Passwort wiederholen" name="password_confirm"/>
-                            <div id="password_error"></div>
+                        <div class="form-row">
+                            <input type="password" class="form-control" id="form_confirm_password" placeholder="Passwort wiederholen" name="password_confirm" required/>
+                            <span class="error_form" id="password_confirm_error_message"></span>
                         </div>
                         <div class="form-check">
                             <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren"/>    <!--    <label class="form-check-label" for="login_check">Mit der Anmeldung stimmst du <a href="#"> unseren Nutzungsbedgungen</a>, <a href="#">und Datenschutzrichtlinie </a>zu</label>-->
                         </div>
 
+                    </form>
+<script type="text/javascript">
+
+    $(function() {
+        $("#name_error_message").hide();
+        $("#lastname_error_message").hide();
+        $("#shortcut_error_message").hide();
+        $("#username_error_message").hide();
+        $("#email_error_message").hide();
+        $("#course_error_message").hide();
+        $("#password_error_message").hide();
+        $("#password_confirm_error_message").hide();
+
+
+        //Variables für Fehler mit "false" initialisieren
+        var error_name = false;
+        var error_lastname = false;
+        var error_shortcut = false;
+        var error_username = false;
+        var error_email = false;
+        var error_course = false;
+        var error_password = false;
+        var error_password_confirm = false;
+
+
+    // Aktion "focus out" im Input-Feld ausführen
+
+    $("#form_name").focusout (function() {
+        check_name(); //Die Funktion "check" wird ausgelöst, wenn das Eingabefeld den Fokus verliert
+    });
+    $("#form_lastname").focusout (function() {
+        check_lastname();
+    });
+    $("#form_shortcut").focusout (function() {
+        check_shortcut();
+    });
+    $("#form_username").focusout (function() {
+        check_username();
+    });
+    $("#form_email").focusout (function() {
+        check_email();
+    });
+    $("#form_course").focusout (function() {
+        check_course();
+    });
+    $("#form_password").focusout (function() {
+        check_password();
+    });
+    $("#form_confirm_password").focusout (function() {
+        check_confirm_password();
+    });
+
+    function check_name() {
+        var pattern = /^ [a-zA-Z]*$/;                    //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+        var name = $("#form_name").val ();
+        if (pattern.test(name)&&name !== '') {
+            $("#name_error_message").hide();
+            $("#form_name").css("border-bottom","2px solid #34F458");
+        }
+        else {
+            $("#name_error_message".html ("Es dürfen nur Zeichen enthalten sein!"));   //wenn der Wert nicht mit dem Pattern übereinstimmt
+            $("#name_error_message").show();
+            $("#form_name").css ("border-bottom","2px solid #F90A0A");
+            error_name = true;
+        }
+
+    }
+
+        function check_lastname() {
+            var pattern = /^ [a-zA-Z]*$/;                    //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            var lastname = $("#form_lastname").val ();
+            if (pattern.test(lastname)&&lastname !== '') {
+                $("#lastname_error_message").hide();
+                $("#form_lastname").css("border-bottom","2px solid #34F458");
+            }
+            else {
+                $("#lastname_error_message".html ("Es dürfen nur Buchstaben enthalten sein!"));   //wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#lastname_error_message").show();
+                $("#form_lastname").css ("border-bottom","2px solid #F90A0A");
+                error_lastname = true;
+            }
+        }
+
+
+        function check_shortcut() {
+            var pattern = /^[a-zA-Z0-9 \-_]*$/;                    //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            var shortcut = $("#form_shortcut").val ();
+            if (pattern.test(shortcut)&&shortcut !== '') {
+                $("#shortcut_error_message").hide();
+                $("#form_shortcut").css("border-bottom","2px solid #34F458");
+            }
+            else {
+                $("#shortcut_error_message".html ("Es dürfen nur Buchstaben und Ziffern enthalten sein!"));   //wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#shortcut_error_message").show();
+                $("#form_shortcut").css ("border-bottom","2px solid #F90A0A");
+                error_lastname = true;
+            }
+        }
+
+        function check_username() {
+            var pattern = /^[a-zA-Z0-9 \-_]*$/;                    //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            var username = $("#form_username").val ();
+            if (pattern.test(username)&&username !== '') {
+                $("#userame_error_message").hide();
+                $("#form_username").css("border-bottom","2px solid #34F458");
+            }
+            else {
+                $("#username_error_message".html ("Es dürfen nur Zeichen enthalten sein!"));   //wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#username_error_message").show();
+                $("#form_username").css ("border-bottom","2px solid #F90A0A");
+                error_name = true;
+            }
+
+        }
+        function check_course() {
+        <!--    var pattern = /^[a-zA-Z0-9 \-_]*$/; -->               //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            var course_length =  $("#form_course").val().length;
+        <!--    var shortcut = $("#form_shortcut").val ();-->
+            if (shortcut !== '' &&course_length>5) {
+                $("#course_error_message").html("Bitte auswählen!"); //wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#form_course").css("border-bottom","2px solid #F90A0A");
+            }
+            else {
+
+                $("#course_error_message").hide();
+                $("#form_course").css ("border-bottom","2px solid #34F458");
+                error_lastname = true;
+            }
+        }
+        function check_password() {
+            var password_length =  $("#form_password").val().length;                    //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            if (passwort_length <6) {
+                $("#password_error_message").html ("Mindestens 6 Zeichen!");//wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#form_password").css("border-bottom","2px solid #F90A0A");
+                error_password = true;
+            }
+            else {
+                $("#password_error_message").hide();
+                $("#form_lastname").css ("border-bottom","2px solid #34F458);
+                error_password = true;
+            }
+
+        }
+
+        function check_confirm_password() {
+            var password=  $("#form_password").val();
+            var confirm_password_=  $("#form_confirm_password").val();   //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            if (passwort_!== retype_password) {
+                $("#confirm_password_error_message").html ("Passwörter stimmen nicht überein!");//wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#confirm_password_error_message").show();
+                $("#form_confirm_password").css("border-bottom","2px solid #F90A0A");
+                error_confirm_password = true;
+            }
+            else {
+                $("#confirm_password_error_message").hide();
+                $("#form_confirm_password").css ("border-bottom","2px solid #34F458);
+                error_password = true;
+            }
+
+        }
+        function check_email() {
+            var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;                    //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+            var email = $("#form_email").val ();
+            if (pattern.test(email)&&email !== '') {
+                $("#email_error_message").hide();
+                $("#form_email").css("border-bottom","2px solid #34F458");
+            }
+            else {
+                $("#email_error_message".html ("Ungültige Email!"));   //wenn der Wert nicht mit dem Pattern übereinstimmt
+                $("#email_error_message").show();
+                $("#form_email").css ("border-bottom","2px solid #F90A0A");
+                error_email = true;
+            }
+        }
+
+        $(".register_form").submit (function() { //Falls ein von Feldern enthält einen Fehler, die Form wird nicht abgeschickt
+            error_name = false;
+            error_lastname = false;
+            error_shortcut = false;
+            error_username = false;
+            error_email = false;
+            error_course = false;
+            error_password = false;
+            error_password_confirm = false;
+
+
+            check_name();
+            check_lastname();
+            check_shortcut();
+            check_username();
+            check_course();
+            check_email();
+            check_password();
+            check_confirm_password();
+
+
+            if (error_name === false && error_lastname === false && error_shortcut === false && error_username === false &&error_course === false && error_email === false && error_password === false && error_password_confirm === false) {
+                alert ("Du hast dich erfolgreich registriert!");
+                return true;
+            }
+            else {
+                alert ("Bitte fühle das Formular korrekt aus!");
+            }
+
+        });
+    });
+
+</script>
+
                        <div class="bigger_text">Du hast bereits einen Account? </div>
 
-                </form>
-
-                <!-- <input type="submit" class="btn btn-outline-primary" name="Login" value="Einloggen"/> -->
                 <a class="btn btn-outline-primary" href="index.php">Einloggen</a>
                 </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 bg_section_signup">
-                <img class="logo" src="LOCI.png" alt="logo"/>
-            </div>
-            <div class="col-12 m_bg_section_signup">
                 <img class="logo" src="LOCI.png" alt="logo"/>
             </div>
 
@@ -238,10 +342,10 @@ include_once 'database.php';
     </div>
 </div>
 
-<!-- jQuery -->
+<!-- jQuery
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
+--><!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
