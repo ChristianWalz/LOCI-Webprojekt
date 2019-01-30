@@ -30,3 +30,8 @@ Profilseite erstellt (profile)
 20.01. Folgen, entfolgen, sowie anzeige verfolgter beiträge und eigener beiträge hinzugefügt, datenbank erweitert "following"
 
 23.01. Suchfunktion (nach Users, email, name/vorname)
+
+28.01. Profilseite mit den Infor über Nutzer
+Beiträge als Cards werden angezeigt
+
+30.01. Register- und Loginseite angepasst
