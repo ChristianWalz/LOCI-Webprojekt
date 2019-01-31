@@ -24,7 +24,6 @@ if ($statement->execute()) {
         }
         echo '<img class="post_img" src="' . $profileImagePath . '"/>';
         echo '</div>';
-
         echo '<div>'.'<h5>'. 'Username: '. $row['USERNAME'] .'</h5>'. '</div>';
         echo '<div>' . '<h5>'.'Vorname: '. $row['VORNAME'] . '</h5>'.'</div>';
         echo '<div>' . '<h5>'.'Nachname: '. $row['NACHNAME'] . '</h5>'.'</div>';
@@ -36,7 +35,8 @@ if ($statement->execute()) {
 
     }
 }
-echo "<a href=\"do_follow.php?id=".$id_fremd."\" style='position: absolute;right: 1em; bottom: 5%; '>Folgen</a>";
-echo '<br>';
-echo "<a href=\"do_unfollow.php?id=".$id_fremd."\" style='position: absolute;right: 1em; bottom: 0%; '>Entolgen</a>";
+
+    echo '<a class="btn btn-info" id="folgen_button" href="do_follow.php?id=' . $id_fremd . '">Folgen</a>&nbsp;&nbsp;&nbsp;&nbsp;';
+    echo '<a class="btn btn-danger" id="entfolgen_button" href="do_unfollow.php?id=' . $id_fremd . '">Entfolgen</a>';
+
 ?>

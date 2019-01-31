@@ -29,13 +29,14 @@ nav {
 }
 /*PROFILBILD*/
 #user_img {
-    width: 65%;
-    height: 140px;
+    width: 200px !important;
+    height: 200px !important;
     background: #aaa;
     margin: 0;
     -webkit-border-radius: 100% !important;
     -moz-border-radius: 100% !important;
     border-radius: 100% !important;
+    object-fit: cover !important;
 
 }
 /*MENU*/
@@ -283,7 +284,7 @@ header > nav > ul > li > a {
     transition: all linear 0.1s;
 }
 /*SEARCHBOX*/
- select{
+ select.form-control{
     width: 90px;
     height: 38px;
     background: white;
@@ -366,4 +367,26 @@ header > nav > ul > li > a {
 h5.card-title {
     font-weight: bolder;
 
+}
+
+/*BUTTONS*/
+#profile_change_button, #folgen_button, #entfolgen_button {
+    color:white !important;
+
+}
+
+
+/*SEARCH PROFILES*/
+
+.grid-item {
+    background-color: lavender;
+    font-weight: lighter;
+    margin: 10px 10px 10px 10px;
+
+
+}
+
+.grid {
+
+    margin: 10px 10px 10px 10px;
 }

@@ -243,7 +243,7 @@ input:active {
 }
 
 select.form-control {
-    height: 38px;
+    height: 45px;
     text-align: center;
     box-shadow: 0 5px #666;
     transform: translateY(4%);
@@ -440,17 +440,15 @@ select.form-control {
     height: 100px;
     margin-left: 15px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain;}
 
-
-/*#flat_button {
-    margin:65px;
-}*/
 .btn-light {
-    background-color:#D3D3D3;
+    background-color: #E0FFFF;
 }
 
-.willkommen {
-    margin-bottom: -40px;
 
+#form_course select option {
+    text-align: center;
+    letter-spacing: 0.25em;
+    text-align-last: center;
 }

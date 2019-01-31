@@ -68,48 +68,30 @@ if (isset($_POST ['submit'])){//um eine Datei hochzuladen-> müssen wir zuerst d
                     $pdo->query($sql);
 
                     $profileimg_upload = 1; //Profilbild erfolgreich hochgeladen
+                    header('Location: main.php?uploadsuccess');
+
                 } else {
                     $profileimg_upload = 5; // INSERT failed
                 }
             } else {
-                $profileimg_upload = 2; // Profilbild zu groß
+                $profileimg_upload = 2;
+                echo "Diese Datei zu groß!";// Profilbild zu groß
+
             }
         } else {
-            $profileimg_upload = 3; // Fehler beim Hochladen des Profilbilds
+            $profileimg_upload = 3;
+            echo "Fehler beim Hochladen des Profilbilds";// Fehler beim Hochladen des Profilbilds
         }
     } else {
-        $profileimg_upload = 0; // Kein Profilbild ausgewählt
+        $profileimg_upload = 0;
+        echo "Kein Profilbild ausgewählt!";// Kein Profilbild ausgewählt
     }
     echo $profileimg_upload;
-
-    /*  $pic_id=$PictureNewName;
-        $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-        $success=$pdo->prepare("INSERT INTO `posts` (`USER_ID`,`image_id` ) VALUES (?,?)");
-        $statement->execute(array("$user_id", "$pic_id"));
-
-
-        if ($success) {
-            header("Location:index.php?uploadsuccess");
-        } else {
-            header("Location:index.php?uploadfailed");
-        }
-    }  else {
-        echo "Diese Datei ist zu groß!";
-    }
-} else {
-    echo "Beim hochladen dieser Datei ist ein Fehler aufgetreten";
-}
-// check if we had mistakes uploading this file
-} else {
-echo "Dieser Dateityp  darf nicht hochgeladen werden";
-}
-*/
 
     //check if the file is allowed (if it has the proper extension)-> check if amy of these extensions listed in $allowed are inside $fileActualExt
 //ansonsten kommt die Fehlermeldung
 
 }
-
 
 //überprüfen ob Button geklickt wurde und ob der Benutzer das Bild hochladen möchte
 //submit weil wir "submit" als Name für unsere Button verwenden

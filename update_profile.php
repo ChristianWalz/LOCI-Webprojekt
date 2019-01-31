@@ -1,6 +1,3 @@
-
-
-
     <?php
     session_start();
     include_once 'database.php';
@@ -135,8 +132,9 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 signup_section">
                     <div class="register_form">
+                        <div class="willkommen"><h5>Update Profil</h5></div>
                         <form action="do_update_profile.php" method="POST" class="form" onsubmit="return Validate() " name="valform"> <!--das Formular muss beim Abschicken  nicht validiert werden:-->
-                            <div class="willkommen"><h1>Willkommen bei LOCI</h1></div>
+
 
                             <div class="form-row" id="Vorname_div" >
                                 <input type="text" class="form-control" name="Vorname" placeholder="Vorname" >

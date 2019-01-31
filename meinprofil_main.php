@@ -49,6 +49,11 @@ include 'header.html';
                         <div class="profile-img">
                             <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
                         </div>
+                        <div class="change_img">
+                            <button class="btn btn-light btn-sm" id="flat_button">Bearbeiten</button> <!-- flat button fehlt css-->
+                        </div>
+
+
                         <div class="sidenav">
                             <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
                             <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
@@ -58,8 +63,6 @@ include 'header.html';
                     </div>
                     <div class="col-md-9">
                         <?php include 'profildaten.php'; ?>
-                        <!--    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="<?php echo 'https://mars.iuk.hdm-stuttgart.de/~oh019/do_follow.php?id='."$user_id";?>">Follow</button>-->
-                        <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="update_profile.php"></a> Bearbeiten</button>
 
                     </div>
 

@@ -1,5 +1,10 @@
-<?php
+<html>
+    <head>
+        <script src="JavaScript/masonry.pkgd.min.js"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
 
+<?php
 include 'database.php';
 
 $searchOption = $_GET['searchoption'];
@@ -33,32 +38,39 @@ switch ($searchOption) {
 $sql = 'SELECT USER_ID, USERNAME, EMAIL, STUDIENGANG, NACHNAME, VORNAME, KUERZEL, UEBER FROM users WHERE lower(' . $searchField . ') LIKE "%' . $searchText . '%"';
 $posts = $pdo->query($sql)->fetchAll();
 
-
 ?>
 
-<table>
-    <th>User-ID</th>
-    <th>Username</th>
-    <th>Studiengang</th>
-    <th>Vorname</th>
-    <th>Nachname</th>
-    <th>Kürzel</th>
-    <th>Über</th>
-
+<body>
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 150 }'>
     <?php
     foreach ($posts as $post) {
-        echo '<tr>';
-        echo '<td>' . $post['USER_ID'] . '</td>';
-        echo '<td>' . $post['USERNAME'] . '</td>';
-        echo '<td>' . $post['STUDIENGANG'] . '</td>';
-        echo '<td>' . $post['VORNAME'] . '</td>';
-        echo '<td>' . $post['NACHNAME'] . '</td>';
-        echo '<td>' . $post['KUERZEL'] . '</td>';
-        echo '<td>' . $post['UEBER'] . '</td>';
-
+        $sql = 'SELECT USER_ID, USERNAME, EMAIL, STUDIENGANG, NACHNAME, VORNAME, KUERZEL, UEBER FROM users WHERE lower(' . $searchField . ') LIKE "%' . $searchText . '%"';
+        $posts = $pdo->query($sql)->fetchAll();
+        $userId = $post['USER_ID'];
+        $sql = "SELECT filename FROM profileimg WHERE USER_ID = $userId";
+        $foundProfileImage = $pdo->query($sql)->fetch();
+        if ($foundProfileImage) {
+            // if image found show image
+            $profileImagePath = $foundProfileImage['filename'];
+        } else {
+            // if no image found user default image
+            $profileImagePath = "bilder/default-user-profile-picture-3.png";
+        }
+        echo '<div class="grid-item">';
+        echo '<img class="post_img" width="150" src="' . $profileImagePath . '" />';
+     //   echo '<div>' . $post['USER_ID'] . '</div>';
+        echo '<div>' ."Username: ". $post['USERNAME'] . '</div>';
+        echo '<div>' . "Vorname: ".$post['VORNAME'] . '</div>';
+        echo '<div>' . "Nachname: ".$post['NACHNAME'] . '</div>';
+        echo '<div>' ."Studiengang: ". $post['STUDIENGANG'] . '</div>';
+        echo '<div>' . "Kürzel: ".$post['KUERZEL'] . '</div>';
+        echo '<div>' ."Über: ". $post['UEBER'] . '</div>';
+        echo "<a href=\"profil_fremd_main.php?id=" . $post['USER_ID'] . "\">Zum Profil</a>";
     //  echo '<td colspan="4"></td>';
-        echo '</tr>';
+        echo '</div>';
 
     }
     ?>
-</table>
+</div>
+</body>
+</html>
