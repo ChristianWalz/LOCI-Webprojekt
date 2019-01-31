@@ -8,7 +8,7 @@ echo 'Hier siehst du alle Mitglieder.';
 $content = $_POST["content"];
 echo $content;
 include 'database.php';
-$statement = $pdo->prepare("SELECT * FROM posts ORDER BY POST_ID DESC");
+$statement = $pdo->prepare("SELECT * FROM users ORDER BY USER_ID ASC");
 if ($statement->execute()) {
     while ($row = $statement->fetch()) {
         echo '<div class="container">';
