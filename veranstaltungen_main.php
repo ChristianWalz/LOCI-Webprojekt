@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 $user_id = $_SESSION['aktiveruser'];
@@ -14,8 +12,6 @@ if(!isset($_SESSION["angemeldet"]))
     die();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -32,7 +28,6 @@ if(!isset($_SESSION["angemeldet"]))
     <!--<script> function toggleSidebar() {
             document.getElementById ("profile-usermenu").classList.toggle('active');}</script>-->
 </head>
-
 <?php
 include 'header.html';
 ?>
@@ -41,48 +36,33 @@ include 'header.html';
 <div class="container">
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row">
-
-
         <div class="col-sm-3">
-
             <!-- SIDEBAR Userimage -->
             <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
             <div class="profile-img">
                 <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
             </div>
-
             <!-- END SIDEBAR Userimage -->
             <div id="benutzer_name">
                 <h2>
                     <?php
-
                     echo $nutzer_ausgelesen;
                     ?>
                 </h2>
-
             </div>
             <br>
             <br>
-
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <ul>
-                    <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
-                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
-                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
-                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
-                    <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-                </ul>
+            <div class="sidenav">
+                <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
+                <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
+                <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
+                <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
             </div>
             <!-- END SIDEBAR BUTTONS -->
         </div>
         <div class="col-sm-9">
             <div class="form-group">
                 <div id="new_post">
-
-
                     <form action="do_veran_schreiben.php" method="post">
                  <textarea id="input" name="WAS" class="form-control" style="width:80%;" rows="3"  placeholder="Neue Veranstaltung? Worum geht es? schreibe es hier...">
                  </textarea>
@@ -92,12 +72,9 @@ include 'header.html';
                  </textarea>
                         <button type="submit" class="btn btn-primary btn-sm" style="margin-left:46%; ">Posten</button>
                     </form>
-
-
                 </div>
             </div>
             <!-- Darstellung der Beiträge-->
-
             <div class="feed">
                 <!-- Benachrichtigung einfügen-->
                 <?php include 'alert.php'
@@ -111,16 +88,13 @@ include 'header.html';
                         document.getElementById(elementId).style.display="block";
                     }
                 </script>
-
                 <button class="btn btn-outline-info btn-md"type="button" onclick="show('alle_veranstaltungen');">Alle Veranstaltungen</button>
                 <button class="btn btn-outline-info btn-md" type="button" onclick="show('meine_veranstaltungen');">Meine Veranstaltungen</button>
-
                 <!--alle News anzeigen lassen durch einbinden des Codes in 'news_hochschule'-->
                 <div id="alle_veranstaltungen" style="font-size: 20px;">
                     <?php include 'veranstaltungen.php'
                     ?>
                 </div>
-
                 <div id="meine_veranstaltungen" style="display:none; font-size: 20px;">
                     <?php include 'meine_veranstaltungen.php'
                     ?>
@@ -128,37 +102,19 @@ include 'header.html';
             </div>
         </div>
         <div class="col-sm-4">
-
             <!--Eingabefeld-->
-
         </div>
     </div>
 
 </div>
 
-
-
 <footer>
-
     <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: white;border-style: solid; border-color: #dddddd;">Impressum </a>
-
 </footer>
-
-
-
-
 
 </body>
 
 
 </html>
-
-
-
-
-
-
-
-
 
 

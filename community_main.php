@@ -13,7 +13,6 @@ if(!isset($_SESSION["angemeldet"]))
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -54,7 +53,6 @@ include 'header.html';
             <div id="benutzer_name">
                 <h2>
                     <?php
-
                     echo $nutzer_ausgelesen;
                     ?>
                 </h2>
@@ -63,48 +61,54 @@ include 'header.html';
             <br>
             <br>
 
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <ul>
-                    <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
-                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
-                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
-                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
-                    <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-                </ul>
+            <div class="sidenav">
+                <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
+                <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
+                <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
+                <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
             </div>
             <!-- END SIDEBAR BUTTONS -->
         </div>
         <div class="col-sm-9">
+            <div id="beitraege"><h2>Community</h2></div><br>
+            <!-- Benachrichtigung einfügen-->
+            <?php include "alert.php">
+            $sql = "SELECT filename FROM profileimg WHERE USER_ID = $user_id";
+            $foundProfileImage = $pdo->query($sql)->fetch();
+            if ($foundProfileImage) {
+            // if image found show image
+            $profileImagePath = $foundProfileImage['filename'];
+            } else {
+            // if no image found user default image
+            $profileImagePath = "bilder/default-user-profile-picture-3.png";
+            }     //    echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">'
+            ?>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src= "<?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="User_Image"'?>">
+                <div class="card-body">
+                    <div class="card-text style=font-size:20px;"><div id="alle_beitraege"">
+                        <div><?php include "community.php" ?></div>
+                    </div>
+
+                    echo '<div class="col-sm-9">';
+                        echo '<div class="card">';
+                            echo '<div class="card-body">';
+                                echo '<h5 class="card-title">' . $row['USERNAME'] . '</h5>';
+                                echo '<p class="card-text">' . $row['TEXT'] . '</p>';
+                                echo "<a   href=\"profil_fremd_main.php?id=" . $posts['USER_ID'] . "\" style='position: absolute;right: 1em; bottom: 6px; ' >Zum Profil</a>";
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
+                </div>
+            </div>
 
             <!-- Darstellung der Beiträge-->
 
-            <div class="feed">
-
-                <div id="beitraege"><h2>Community</h2></div><br>
-                <!-- Benachrichtigung einfügen-->
-                <?php include 'alert.php'
-                ?>
-
-
-
-                <!--alle Mitglieder anzeigen lassen durch einbinden des Codes in 'community.php'-->
-
-
-
-                <div id="alle_beitraege" style="font-size: 20px;">
-                    <div><?php include 'community.php' ?></div>
-                </div>
-
-
-            </div>
-        </div>
-        <div class="col-sm-4">
-
-            <!--Eingabefeld-->
 
         </div>
+
     </div>
 
 </div>
@@ -125,13 +129,5 @@ include 'header.html';
 
 
 </html>
-
-
-
-
-
-
-
-
 
 

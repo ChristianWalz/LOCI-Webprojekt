@@ -12,8 +12,6 @@ if(!isset($_SESSION["angemeldet"]))
     die();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -32,115 +30,96 @@ if(!isset($_SESSION["angemeldet"]))
 </head>
 
 <?php
-    include 'header.html';
+include 'header.html';
 ?>
 <body>
 
 <div class="container">
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
-    <div class="row">
-
-
+    <div class="row"">
         <div class="col-sm-3">
-
-                <!-- SIDEBAR Userimage -->
-                <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
-                <div class="profile-img">
-                    <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
-                </div>
-
-                <!-- END SIDEBAR Userimage -->
-            <div id="benutzer_name">
+            <div id="benutzer_name" style="text-align: just">
                 <h2>
                     <?php
-
-                        echo $nutzer_ausgelesen;
+                    echo $nutzer_ausgelesen;
                     ?>
                 </h2>
-
             </div>
-            <br>
-            <br>
+            <!-- SIDEBAR Userimage -->
+            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+            <div class="profile-img">
+                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+            </div>
+            <!-- END SIDEBAR Userimage -->
 
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-            <ul>
-                   <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
-                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
-                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
-                   <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
-                  <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
+            <br>
+            <br>
+            <!--MENU -->  <!-- SIDEBAR BUTTONS -->
+
+            <div class="sidenav">
+                <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
+                <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
+                <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
+                <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
+            </div>
+     <!--     <div class="nav nav-pills flex-column" id="profile-usermenu">
+                <ul>
+                    <li>  <a class="active" href="main.php"> <i class="fas fa-exchange-alt"></i>Beiträge</a></li>
+                    <li> <a href="Follow_list_main.php"><i class="fas fa-user-friends"></i>  Following</a></li>
+                    <li>  <a href="news_main.php"><i class="fas fa-globe"></i> Neuigkeiten</a></li>
+                    <li> <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week"></i>  Veranstaltungen</a></li>
+
                 </ul>
-            </div>
-                <!-- END SIDEBAR BUTTONS -->
+            </div>-->
+            <!-- END SIDEBAR BUTTONS -->
         </div>
         <div class="col-sm-9">
             <div class="form-group">
                 <div id="new_post">
-
-
                     <form action="do_schreiben.php" method="post">
                  <textarea id="input" name="TEXT" class="form-control" style="width:80%;" rows="3"  placeholder="Teile etwas deinen Mitstudierenden mit...">
                  </textarea>
                         <button type="submit" class="btn btn-primary btn-sm" style="margin-left:46%; ">Posten</button>
                     </form>
-
-
                 </div>
             </div>
-                    <!-- Darstellung der Beiträge-->
+            <!-- Darstellung der Beiträge-->
 
-                    <div class="feed">
+            <div class="feed">
+                <br>
+                <!-- Benachrichtigung einfügen-->
+                <?php include 'alert.php'
+                ?>
+                <!-- Buttons zur Auswahl was angezeigt werden soll-->
+                <script type="text/javascript">
+                    function show(elementId) {
+                        document.getElementById("alle_beitraege").style.display="none";
+                        document.getElementById("verfolgte_beitraege").style.display="none";
+                        document.getElementById("meine_beitraege").style.display="none";
+                        document.getElementById(elementId).style.display="block";
+                    }
+                </script>
+                <button type="button" class="btn btn-outline-info btn-md" onclick="show('alle_beitraege');">Alle Beiträge</button>
+                <button type="button" class="btn btn-outline-info btn-md" onclick="show('verfolgte_beitraege');">Verfolgte Beiträge</button>
+                <button type="button" class="btn btn-outline-info btn-md" onclick="show('meine_beitraege');">Meine Beiträge</button>
+                <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
+                <div id="alle_beitraege" style="font-size: 20px;">
+                    <div><?php include 'alle_beitraege.php' ?></div>
+                </div>
 
-                        <div id="beitraege"><h2>Beiträge</h2></div><br>
-                        <!-- Benachrichtigung einfügen-->
-                        <?php include 'alert.php'
-                        ?>
-                        <!-- Buttons zur Auswahl was angezeigt werden soll-->
+                <div id="verfolgte_beitraege" style="display:none;font-size: 20px;">
+                    <?php include 'verfolgte_beitraege.php'
+                    ?>
+                </div>
 
-                        <script type="text/javascript">
-                            function show(elementId) {
-                                document.getElementById("alle_beitraege").style.display="none";
-                                document.getElementById("verfolgte_beitraege").style.display="none";
-                                document.getElementById("meine_beitraege").style.display="none";
-                                document.getElementById(elementId).style.display="block";
-                            }
-                        </script>
-
-                        <button type="button" class="btn btn-outline-info btn-md" onclick="show('alle_beitraege');">Alle Beiträge</button>
-                        <button type="button" class="btn btn-outline-info btn-md" onclick="show('verfolgte_beitraege');">Verfolgte Beiträge</button>
-                        <button type="button" class="btn btn-outline-info btn-md" onclick="show('meine_beitraege');">Meine Beiträge</button>
-
-                        <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
-
-
-
-                        <div id="alle_beitraege" style="font-size: 20px;">
-                            <div><?php include 'alle_beitraege.php' ?></div>
-                        </div>
-
-                        <div id="verfolgte_beitraege" style="display:none;font-size: 20px;">
-                            <?php include 'verfolgte_beitraege.php'
-                            ?>
-                        </div>
-
-                        <div id="meine_beitraege" style="display:none; font-size: 20px;">
-                            <?php include 'meine_beitraege.php'
-                            ?>
-                        </div>
-                   </div>
-        </div>
-        <div class="col-sm-4">
-
-            <!--Eingabefeld-->
-
+                <div id="meine_beitraege" style="display:none; font-size: 20px;">
+                    <?php include 'meine_beitraege.php'
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
-
 
 
 <footer>
@@ -150,20 +129,8 @@ if(!isset($_SESSION["angemeldet"]))
 </footer>
 
 
-
-
-
 </body>
 
 
 </html>
-
-
-
-
-
-
-
-
-
 

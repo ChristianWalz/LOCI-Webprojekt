@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 $user_id = $_SESSION['aktiveruser'];
@@ -14,8 +12,6 @@ if(!isset($_SESSION["angemeldet"]))
     die();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -37,74 +33,49 @@ if(!isset($_SESSION["angemeldet"]))
 include 'header.html';
 ?>
 <body>
-
-<div class="container">
+<!--<div style="background-color:white;">*/
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
-    <div class="row">
+<div class="feed shadow-lg"
+<div class="card-layout" style="background-color:#E6e6Fa;">
+    <h4 class="card-layout-header"><?php echo " Mein Profil"; ?></h4>
+    <!--    <h4 class="card-layout-header"><?php echo " $nutzer_ausgelesen"; ?></h4>-->
+    <div class="card-body">
+        <div class="card-body feed-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- SIDEBAR Userimage -->
+                        <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+                        <div class="profile-img">
+                            <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+                        </div>
+                        <div class="sidenav">
+                            <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
+                            <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
+                            <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
+                            <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
+                        </div><!-- END SIDEBAR Userimage -->
+                    </div>
+                    <div class="col-md-9">
+                        <?php include 'profildaten.php'; ?>
+                        <!--    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="<?php echo 'https://mars.iuk.hdm-stuttgart.de/~oh019/do_follow.php?id='."$user_id";?>">Follow</button>-->
+                        <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="update_profile.php"></a> Bearbeiten</button>
 
-
-        <div class="col-sm-3">
-
-            <!-- SIDEBAR Userimage -->
-            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
-            <div class="profile-img">
-                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
-            </div>
-
-            <!-- END SIDEBAR Userimage -->
-            <div id="benutzer_name">
-                <h2>
-                    <?php
-
-                    echo $nutzer_ausgelesen;
-                    ?>
-                </h2>
-
-            </div>
-            <br>
-            <br>
-
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <ul>
-                    <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
-                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
-                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
-                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
-                    <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-                </ul>
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-        </div>
-        <div class="col-sm-9">
-
-            <!-- Darstellung der Beiträge-->
-
-            <div class="feed">
-
-
-                <div id="beitraege"><h2>Mein Profil</h2></div><br>
-                <!-- Benachrichtigung einfügen-->
-                <?php include 'alert.php'
-                ?>
-                <div class="col-md-9">
-                    <?php include 'profildaten.php'; ?>
-                    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="<?php echo 'https://mars.iuk.hdm-stuttgart.de/~oh019/do_follow.php?id='."$user_id";?>">Follow</button>
+                    </div>
+                    <div id="aktiveruser_ueber">
+                        <h2>
+                            <?php
+                            echo $ueber;
+                            ?>
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
-
-            <!--Eingabefeld-->
-
-        </div>
     </div>
-
 </div>
-
-
+<!-- END SIDEBAR BUTTONS -->
+<!--</div>-->
 
 <footer>
 
@@ -120,14 +91,6 @@ include 'header.html';
 
 
 </html>
-
-
-
-
-
-
-
-
 
 
 
