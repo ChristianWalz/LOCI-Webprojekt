@@ -13,7 +13,7 @@ if(isset($_SESSION['angemeldet'])) {
     if ($statement->execute()) {
         while ($row = $statement->fetch()) {
             echo $row['USERNAME'] . " " . $row['STUDIENGANG'] . " " . $row['UEBER'];
-            echo "<a href=\"profil_fremd.php?id=" . $row['USER_ID'] . "\">Zum Profil</a>";
+            echo "<a href=\"profil_fremd_main.php?id=" . $row['USER_ID'] . "\">Zum Profil</a>";
             echo "<br>";
         }
     }
