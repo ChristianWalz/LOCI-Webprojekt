@@ -33,7 +33,6 @@ if(!isset($_SESSION["angemeldet"]))
 include 'header.html';
 ?>
 <body>
-
 <div class="container">
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row"">
@@ -124,7 +123,7 @@ include 'header.html';
 
 <footer>
 
-    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: white;border-style: solid; border-color: #dddddd;">Impressum </a>
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; margin-top:100px; color: #4169E1;">Impressum </a>
 
 </footer>
 

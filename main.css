@@ -20,7 +20,7 @@ nav {
     padding-top: 30px;
     margin-top: 0;
     background-color:#E6e6Fa;
-    height:2000px;
+    height:100%;
 }
 
 .col-sm-3 {
@@ -29,13 +29,13 @@ nav {
 }
 /*PROFILBILD*/
 #user_img {
-    width: 70%;
-    height: 70%;
+    width: 65%;
+    height: 140px;
     background: #aaa;
     margin: 0;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
+    -webkit-border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    border-radius: 100% !important;
 
 }
 /*MENU*/
