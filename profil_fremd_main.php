@@ -1,5 +1,4 @@
 
-
 <?php
 session_start();
 $user_id = $_SESSION['aktiveruser'];
@@ -56,7 +55,6 @@ include 'header.html';
             <div id="benutzer_name">
                 <h2>
                     <?php
-
                     echo $nutzer_ausgelesen;
                     ?>
                 </h2>
@@ -65,16 +63,11 @@ include 'header.html';
             <br>
             <br>
 
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <ul>
-                    <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
-                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
-                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
-                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
-                    <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-                </ul>
+            <div class="sidenav">
+                <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
+                <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
+                <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
+                <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
             </div>
             <!-- END SIDEBAR BUTTONS -->
         </div>
@@ -83,16 +76,15 @@ include 'header.html';
             <!-- Darstellung der Beiträge-->
 
             <div class="feed">
+                <div id="beitraege"><h2>Das Profil von:</h2></div><br>
                 <!-- Benachrichtigung einfügen-->
                 <?php include 'alert.php'
                 ?>
-                <div id="beitraege"><h2>Besuchtes Profil von: </h2></div><br>
 
-                <!--alle Beiträge anzeigen lassen durch einbinden des Codes in 'alle_Beiträge'-->
+                <!--alle Verfolgten Nutzer anzeigen lassen durch einbinden des Codes in 'follow_list.php'-->
                 <div id="alle_beitraege" style="font-size: 20px;">
                     <div><?php include 'profil_fremd.php' ?></div>
                 </div>
-
 
             </div>
         </div>
@@ -121,13 +113,4 @@ include 'header.html';
 
 
 </html>
-
-
-
-
-
-
-
-
-
 

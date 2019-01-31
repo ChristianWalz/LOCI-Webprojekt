@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['angemeldet'])) //prüft ob schon angemeldet, wenn ja weiterleitung
+{
+    header("Location: main.php");
+}
 
 ?>
 

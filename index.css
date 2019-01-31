@@ -440,8 +440,12 @@ select.form-control {
     height: 100px;
     margin-left: 15px;
     background-repeat: no-repeat;
-    background-size: contain;}
+    background-size: contain;
 
+
+/*#flat_button {
+    margin:65px;
+}*/
 .btn-light {
     background-color:#D3D3D3;
 }

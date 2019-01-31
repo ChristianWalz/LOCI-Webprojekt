@@ -33,6 +33,7 @@ if(!isset($_SESSION["angemeldet"]))
 include 'header.html';
 ?>
 <body>
+
 <div class="container">
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row"">

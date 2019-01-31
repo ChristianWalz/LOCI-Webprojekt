@@ -10,15 +10,19 @@ include 'database.php';//enthält die Daten zur Verbindungsherstellung mit der D
 $anzahl_neu = $pdo->query("select count(*) from posts p, following f WHERE p.USER_ID=f.FOLLOWER_ID AND
     f.USER_ID='$user_id'")->fetchColumn();
 //echo $anzahl_neu;
-echo "<br>";
+//echo "<br>";
 
-if ($anzahl_alt != $anzahl_neu) {
+if ($anzahl_alt < $anzahl_neu) {
 
-    echo 'Es gibt neue Beiträge für dich!';
+    $message = "Es gibt neue Posts verfolgter Nutzer!";
+    echo "<script type='text/javascript'>alert('$message');</script>";
 //popup einbauen
     echo '<br>';
     echo '<br>';
 
+    $_SESSION['anzahl_alt'] = $anzahl_neu;
+}
+else {
     $_SESSION['anzahl_alt'] = $anzahl_neu;
 }
 

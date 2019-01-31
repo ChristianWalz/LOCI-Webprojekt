@@ -62,13 +62,7 @@ include 'header.html';
                         <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full"> <a href="update_profile.php"></a> Bearbeiten</button>
 
                     </div>
-                    <div id="aktiveruser_ueber">
-                        <h2>
-                            <?php
-                            echo $ueber;
-                            ?>
-                        </h2>
-                    </div>
+
                 </div>
             </div>
         </div>

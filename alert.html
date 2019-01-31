@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<?php
+session_start();
+$user_id = $_SESSION['aktiveruser'];
+
+include 'database.php';//enthält die Datne zur Verbindungsherstellung mit der Datenbank
+
+// Anzahl der verfolgten Beiträge auslesen und in Variable schreiben i
+
+$anzahl_alt = $pdo->query("select count(*) from posts p, following f WHERE p.USER_ID=f.FOLLOWER_ID AND
+f.USER_ID='$user_id'")->fetchColumn();
+echo $anzahl_alt;
+echo "<br>";
+
+
+
+
+/* $anzahl_neu = $pdo->query("select count(*) from posts p, following f WHERE p.USER_ID=f.FOLLOWER_ID AND
+f.USER_ID='$user_id'")->fetchColumn();
+echo $anzahl_neu;*/
+
+?>
+
+
+<p>A script on this page starts this clock:</p>
+
+<p id='demo'></p>
+
+<script>
+    var myVar = setInterval(myTimer, 1000);
+
+    function myTimer() {
+        var d = new Date();
+        document.getElementById('demo').innerHTML = d.toLocaleTimeString();
+    }
+</script>
+
+
+
+
+</body>
+</html>
