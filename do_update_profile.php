@@ -22,7 +22,7 @@ else
 {
     echo"Bitte alles ausfüllen!";
     die();
-}
+} //überschreibt variablen in der datenbank an der stelle wo die user id die des nutzers ist
 $statement = $pdo->prepare("UPDATE users SET NACHNAME='$nachname', VORNAME='$vorname', KUERZEL='$kuerzel', USERNAME='$username', PASSWORT='$passwort', STUDIENGANG='$studiengang', EMAIL='$email', UEBER='$ueber' WHERE USER_ID='$user_id' ");
 $success = $statement->execute(array($nachname, $vorname, $kuerzel, $username, $passwort, $studiengang, $email, $ueber));//die angegebenen Daten werden in die Datenbank geschrieben
 
