@@ -1,3 +1,6 @@
+<html>
+<body>
+
 <?php
 session_start();
 $user_id = $_SESSION['aktiveruser'];
@@ -38,13 +41,14 @@ if ($statement->execute()) {
     echo '<a class="btn btn-info" id="folgen_button" href="do_follow.php?id=' . $id_fremd . '">Folgen</a>&nbsp;&nbsp;&nbsp;&nbsp;';
     echo '<a class="btn btn-danger" id="entfolgen_button" href="do_unfollow.php?id=' . $id_fremd . '">Entfolgen</a>';
 ?>
-
-
 <footer>
 
-    <a href="impressum_main.php" style="font-size: 20px; position:absolute; margin:5% 50% 50%; color: #4169E1;">Impressum </a>
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
 
 </footer>
+</body>
 
+
+</html>
 
 

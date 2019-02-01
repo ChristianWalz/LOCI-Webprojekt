@@ -33,8 +33,6 @@ if(!isset($_SESSION["angemeldet"]))
 include 'header.html';
 ?>
 <body>
-<!--<div style="background-color:white;">*/
-    <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
 <div class="feed shadow-lg"
 <div class="card-layout" style="background-color:#E6e6Fa;">
     <h4 class="card-layout-header"><?php echo " Mein Profil"; ?></h4>
@@ -52,8 +50,6 @@ include 'header.html';
                         <div class="change_img">
                             <a href="change_image.php" class="btn btn-light btn-sm" id="flat_button">Bearbeiten</a>
                         </div>
-
-
                         <div class="sidenav">
                             <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
                             <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
@@ -76,7 +72,7 @@ include 'header.html';
 
 <footer>
 
-    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: white;border-style: solid; border-color: #dddddd;">Impressum </a>
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
 
 </footer>
 

@@ -23,10 +23,7 @@ if(!isset($_SESSION["angemeldet"]))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="main.css">
-    <!--<link rel="stylesheet" href="header.css">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <!--<script> function toggleSidebar() {
-            document.getElementById ("profile-usermenu").classList.toggle('active');}</script>-->
 </head>
 
 <?php
@@ -58,29 +55,21 @@ include 'header.html';
                 <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
                 <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
             </div>
-     <!--     <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <ul>
-                    <li>  <a class="active" href="main.php"> <i class="fas fa-exchange-alt"></i>Beiträge</a></li>
-                    <li> <a href="Follow_list_main.php"><i class="fas fa-user-friends"></i>  Following</a></li>
-                    <li>  <a href="news_main.php"><i class="fas fa-globe"></i> Neuigkeiten</a></li>
-                    <li> <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week"></i>  Veranstaltungen</a></li>
-
-                </ul>
-            </div>-->
             <!-- END SIDEBAR BUTTONS -->
         </div>
         <div class="col-sm-9">
             <div class="form-group">
                 <div id="new_post">
-                    <form action="do_schreiben.php" method="post">
-                 <textarea id="input" name="TEXT" class="form-control" style="width:80%;" rows="3"  placeholder="Teile etwas deinen Mitstudierenden mit...">
-                 </textarea>
-                        <button type="submit" class="btn btn-primary btn-sm" style="margin-left:46%; ">Posten</button>
+                    <form action="do_schreiben.php" method="post" enctype="multipart/form-data">
+                        <textarea id="input" name="TEXT" class="form-control" style="width:80%;" rows="3"  placeholder="Teile etwas deinen Mitstudierenden mit...">
+                        </textarea>
+                        <input style="padding:-10px 0 0 10%" type="file" name="file">
+                        <button type="submit" class="btn btn-primary btn-sm" style="margin:15px 10% 0 0" >Posten</button>
                     </form>
+
                 </div>
             </div>
             <!-- Darstellung der Beiträge-->
-
             <div class="feed">
                 <br>
                 <!-- Benachrichtigung einfügen-->
@@ -120,7 +109,7 @@ include 'header.html';
 
 <footer>
 
-    <a href="impressum_main.php" style="font-size: 20px; position:absolute; margin:5% 50% 50%; color: #4169E1;">Impressum </a>
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
 
 </footer>
 

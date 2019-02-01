@@ -11,7 +11,7 @@ nav {
     background: linear-gradient(to left,rgba(54,194,182,0.96) 0,rgba(62,188,207,0.96) 100%);
     border-bottom: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-  /*  display: block;*/
+    /*  display: block;*/
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -22,6 +22,7 @@ nav {
     background-color:#E6e6Fa;
     height:100%;
 }
+
 
 .col-sm-3 {
     height:100%;
@@ -162,9 +163,8 @@ nav {
 
 }
 #flat_button {
-    margin:65px;
+    margin: 20px 0 0 40px;
 }
-
 
 .post_img {
     height: 100px;
@@ -174,7 +174,7 @@ nav {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-   }
+}
 
 
 .abstand {
@@ -395,4 +395,9 @@ h5.card-title {
 .grid {
 
     margin: 10px 10px 10px 10px;
+    height:100%;
+}
+
+.change_img div {
+    margin:0;
 }

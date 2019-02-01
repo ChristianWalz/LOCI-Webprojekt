@@ -13,8 +13,6 @@ if(!isset($_SESSION["angemeldet"]))
     die();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -29,26 +27,19 @@ if(!isset($_SESSION["angemeldet"]))
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 </head>
-
 <?php
 include 'header.html';
 ?>
 <body>
 
 <div class="container">
-    <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row">
-
-
         <div class="col-sm-3">
-
             <!-- SIDEBAR Userimage -->
             <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
             <div class="profile-img">
                 <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
             </div>
-
             <!-- END SIDEBAR Userimage -->
             <div id="benutzer_name">
                 <h2>
@@ -56,11 +47,7 @@ include 'header.html';
                     echo $nutzer_ausgelesen;
                     ?>
                 </h2>
-
             </div>
-            <br>
-            <br>
-
             <div class="sidenav">
                 <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
                 <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
@@ -70,32 +57,23 @@ include 'header.html';
             <!-- END SIDEBAR BUTTONS -->
         </div>
         <div class="col-sm-9">
-
             <!-- Darstellung der Beiträge-->
-
             <div class="feed">
                 <div id="beitraege"><h2>Das Profil von:</h2></div><br>
                 <!-- Benachrichtigung einfügen-->
                 <?php include 'alert.php'
                 ?>
-
                 <!--alle Verfolgten Nutzer anzeigen lassen durch einbinden des Codes in 'follow_list.php'-->
                 <div id="alle_beitraege" style="font-size: 20px;">
                     <div><?php include 'profil_fremd.php' ?></div>
                 </div>
-
             </div>
         </div>
         <div class="col-sm-4">
-
             <!--Eingabefeld-->
-
         </div>
     </div>
-
 </div>
-
-
 </body>
 
 

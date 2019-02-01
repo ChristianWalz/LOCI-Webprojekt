@@ -107,7 +107,7 @@ include 'header.html';
 </div>
 
 <footer>
-    <a href="impressum_main.php" style="font-size: 20px; position:absolute; margin:5% 50% 50%; color: #4169E1;">Impressum </a>
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
 </footer>
 
 </body>

@@ -134,8 +134,6 @@
                     <div class="register_form">
                         <div class="willkommen"><h5>Update Profil</h5></div>
                         <form action="do_update_profile.php" method="POST" class="form" onsubmit="return Validate() " name="valform"> <!--das Formular muss beim Abschicken  nicht validiert werden:-->
-
-
                             <div class="form-row" id="Vorname_div" >
                                 <input type="text" class="form-control" name="Vorname" placeholder="Vorname" >
                                 <div id="vorname_fehler"></div>
@@ -156,9 +154,7 @@
                                 <input type="email" class="form-control" name="Email" placeholder="Email">
                                 <div id="email_error"></div>
                             </div>
-                            <!--<div class="form-row">
-                                 <input type="email" class="form-control" id="re_mail" placeholder="Email wiederholden" required>
-                             </div>-->
+
                             <div class="form-row" id="studiengang_div">
 
                                 <select name="Studiengang" class="form-control">
