@@ -41,6 +41,9 @@ if(isset($_SESSION['angemeldet']))
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['USERNAME'] . '</h5>';
             echo '<p class="card-text">' . $row['TEXT'] . '</p>';
+            if ($row['IMAGE']) {
+                echo '<img id="user_img" src="'.$row['IMAGE'].'" alt="Bild">';
+            }
             echo "<a   href=\"profil_fremd_main.php?id=" . $row['FOLLOWER_ID'] . "\" style='position: absolute;right: 1em; bottom: 6px; ' >Zum Profil</a>";
             echo '</div>';
             echo '</div>';

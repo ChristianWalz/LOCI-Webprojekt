@@ -34,7 +34,9 @@ if(isset($_SESSION['angemeldet'])) {
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['USERNAME'] . '</h5>';
             echo '<p class="card-text">' . $row['TEXT'] . '</p>';
-
+            if ($row['IMAGE']) {
+                echo '<img id="user_img" src="'.$row['IMAGE'].'" alt="Bild">';
+            }
             echo '</div>';
             echo '</div>';
             echo '</div>';
