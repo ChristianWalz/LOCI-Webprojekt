@@ -8,9 +8,12 @@ if(isset($_SESSION['angemeldet'])) {
     $content = $_POST["content"];
     echo $content;
     include 'database.php';
+
+    //auslesen der tabelle veranstaltungen
     $statement = $pdo->prepare("SELECT * FROM veranstaltungen ORDER BY VER_ID DESC");
     if ($statement->execute()) {
         while ($row = $statement->fetch()) {
+            //darstellung aller veranstaltungen
             echo '<div class="container">';
             echo '<div class="row">';
             echo '<div class="col-sm-3">';

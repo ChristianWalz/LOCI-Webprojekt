@@ -8,9 +8,11 @@ if(isset($_SESSION['angemeldet'])) {
     $content = $_POST["content"];
     echo $content;
     include 'database.php';
+    //auslesen verfolgter veranstaltungen
     $statement = $pdo->prepare("SELECT * FROM veranstaltungen v, veranstaltungfollowlist f WHERE v.VER_ID=f.VER_ID AND
     f.USER_ID='$user_id'");
     if ($statement->execute()) {
+        //darstellung verfolgter veranstaltungen
         while ($row = $statement->fetch()) {
             echo '<div class="container">';
             echo '<div class="row">';
