@@ -50,7 +50,7 @@ include 'header.html';
                             <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
                         </div>
                         <div class="change_img">
-                            <button class="btn btn-light btn-sm" id="flat_button">Bearbeiten</button> <!-- flat button fehlt css-->
+                            <a href="change_image.php" class="btn btn-light btn-sm" id="flat_button">Bearbeiten</a>
                         </div>
 
 

@@ -26,6 +26,7 @@ $success = $statement->execute(array($nachname, $vorname, $kuerzel, $username, $
 
 if ($success) {
     echo "Du wurdest erfolgreich registriert!";
+    header("Location:index.php");
 
 
 } else {

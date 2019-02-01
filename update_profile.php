@@ -246,5 +246,11 @@
 
 
     </body>
+    <footer>
+
+        <a href="impressum_main.php" style="font-size: 20px; position:absolute; margin:5% 50% 50%; color: #4169E1;">Impressum </a>
+
+    </footer>
+
     </html>
 

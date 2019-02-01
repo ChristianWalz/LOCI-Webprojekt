@@ -284,7 +284,7 @@ header > nav > ul > li > a {
     transition: all linear 0.1s;
 }
 /*SEARCHBOX*/
- select.form-control{
+#form-course select{
     width: 90px;
     height: 38px;
     background: white;
@@ -309,6 +309,10 @@ header > nav > ul > li > a {
     padding-top:5px;
 
 }
+select #search_option {
+    height: 38px;
+}
+
 
 /*PROFIL CSS*/
 .card-layout {

@@ -6,7 +6,6 @@
 
 <?php
 include 'database.php';
-
 $searchOption = $_GET['searchoption'];
 $searchText = strtolower($_GET['searchtext']);
 

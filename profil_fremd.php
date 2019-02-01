@@ -40,3 +40,13 @@ if ($statement->execute()) {
     echo '<a class="btn btn-danger" id="entfolgen_button" href="do_unfollow.php?id=' . $id_fremd . '">Entfolgen</a>';
 
 ?>
+
+
+<footer>
+
+    <a href="impressum_main.php" style="font-size: 20px; position:absolute; margin:5% 50% 50%; color: #4169E1;">Impressum </a>
+
+</footer>
+
+
+
