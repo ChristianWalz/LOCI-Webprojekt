@@ -1,4 +1,5 @@
 <header>
+    //@media damit die uhr auf dem handy nicht angezeigt wird, da sie sich mit anderen elementen überschneiden würde
     <style> @media (max-width: 767px) {
         #zeit {display:none !important;}
     }</style>
@@ -6,26 +7,27 @@
     <span class="navbar-brand"><a href="main.php"><img id=logo src="LOCI.png" alt="logo"></a>
     </span>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <form class="nav navbar-form navbar-right" id="searchblock" method="get" action="do_search.php" role="search">
-                <div class="form-group">
-                    <input type="search" class="form-control" id="suchfeld" placeholder="Suchen" aria-label="Search" name="searchtext">
-                </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <form class="nav navbar-form navbar-right" id="searchblock" method="get" action="do_search.php" role="search">
+            <div class="form-group">
+                <input type="search" class="form-control" id="suchfeld" placeholder="Suchen" aria-label="Search" name="searchtext">
+            </div>
 
-                <select name="searchoption" style="height:38px;">
-                    <option value="username">Username</option>
-                    <option value="email">E-Mail</option>
-                    <option value="nachname">Nachname</option>
-                    <option value="vorname">Vorname</option>
-                    <option value="studiengang">Studiengang</option>
-                </select>
 
-                <button type="submit" id="search-button" class="btn btn-info">
-                    <span class="glyphicon glyphicon-search"></span> Los
-                </button>
+            <select name="searchoption">
+                <option value="username">Username</option>
+                <option value="email">E-Mail</option>
+                <option value="nachname">Nachname</option>
+                <option value="vorname">Vorname</option>
+                <option value="studiengang">Studiengang</option>
+            </select>
+
+            <button type="submit" id="search-button" class="btn btn-info">
+                <span class="glyphicon glyphicon-search"></span> Los
+            </button>
             </form>
 
 
@@ -41,23 +43,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Abmelden</a>
                 </li>
-
+//einfügen der Uhr mit Script
                 <li class="nav-item">
                     <p id='zeit' style="border: 3px solid; border-color:darkgrey;padding: 8px;position: absolute;right: 5em; font-size: 17px;color:ghostwhite;"></p>
                     <script>
                         var myVar = setInterval(myTimer, 1000);
+
                         function myTimer() {
                             var d = new Date();
                             document.getElementById('zeit').innerHTML = d.toLocaleTimeString();
                         }
                     </script>
                 </li>
-            </ul>
-        </div>
-
-        <!--  <form class="navbar-form navbar-right" method="post" action="logout.php"role="logout">
-              <button type="submit" class="btn btn-default">Logout</button>-->
-    </nav>
+        </ul>
+    </div>
+    
+  <!--  <form class="navbar-form navbar-right" method="post" action="logout.php"role="logout">
+        <button type="submit" class="btn btn-default">Logout</button>-->
+</nav>
 
 </header>
-
