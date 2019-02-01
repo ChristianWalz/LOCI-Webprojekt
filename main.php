@@ -50,9 +50,6 @@ include 'header.html';
                 <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
             </div>
             <!-- END SIDEBAR Userimage -->
-
-            <br>
-            <br>
             <!--MENU -->  <!-- SIDEBAR BUTTONS -->
 
             <div class="sidenav">

@@ -42,6 +42,13 @@ include 'header.html';
 
 
         <div class="col-sm-3">
+            <div id="benutzer_name" style="text-align: just">
+                <h2>
+                    <?php
+                    echo $nutzer_ausgelesen;
+                    ?>
+                </h2>
+            </div>
 
             <!-- SIDEBAR Userimage -->
             <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
@@ -51,17 +58,6 @@ include 'header.html';
             </div>
 
             <!-- END SIDEBAR Userimage -->
-            <div id="benutzer_name">
-                <h2>
-                    <?php
-                    echo $nutzer_ausgelesen;
-                    ?>
-                </h2>
-
-            </div>
-            <br>
-            <br>
-
             <div class="sidenav">
                 <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
                 <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>

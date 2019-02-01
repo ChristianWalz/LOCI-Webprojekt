@@ -287,6 +287,8 @@ header > nav > ul > li > a {
 #form-course select{
     width: 90px;
     height: 38px;
+    text-align: center;
+    text-align-last: center;
     background: white;
     border: none;
     font-size: 10pt;

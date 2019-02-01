@@ -43,15 +43,6 @@ include 'header.html';
 
 
         <div class="col-sm-3">
-
-            <!-- SIDEBAR Userimage -->
-            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
-            <div class="profile-img">
-                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
-            </div>
-
-            <!-- END SIDEBAR Userimage -->
             <div id="benutzer_name">
                 <h2>
                     <?php
@@ -60,9 +51,12 @@ include 'header.html';
                 </h2>
 
             </div>
-            <br>
-            <br>
-
+            <!-- SIDEBAR Userimage -->
+            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+            <div class="profile-img">
+                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+            </div>
+            <!-- END SIDEBAR Userimage -->
             <div class="sidenav">
                 <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
                 <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>

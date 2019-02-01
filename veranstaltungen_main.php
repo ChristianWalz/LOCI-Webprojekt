@@ -37,21 +37,19 @@ include 'header.html';
     <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row">
         <div class="col-sm-3">
-            <!-- SIDEBAR Userimage -->
-            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-            <div class="profile-img">
-                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
-            </div>
-            <!-- END SIDEBAR Userimage -->
-            <div id="benutzer_name">
+            <div id="benutzer_name" style="text-align: just">
                 <h2>
                     <?php
                     echo $nutzer_ausgelesen;
                     ?>
                 </h2>
             </div>
-            <br>
-            <br>
+            <!-- SIDEBAR Userimage -->
+            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+            <div class="profile-img">
+                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+            </div>
+            <!-- END SIDEBAR Userimage -->
             <div class="sidenav">
                 <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
                 <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
@@ -109,15 +107,10 @@ include 'header.html';
 </div>
 
 <footer>
-
     <a href="impressum_main.php" style="font-size: 20px; position:absolute; margin:5% 50% 50%; color: #4169E1;">Impressum </a>
-
 </footer>
 
-
 </body>
-
-
 </html>
 
 
