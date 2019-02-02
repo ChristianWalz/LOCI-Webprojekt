@@ -174,9 +174,9 @@ nav {
 /*PROFILBILD BEITRÄGE*/
 .user_img {
     height:150px;
-    width:auto;
+    max-width:100%;
     background: #fafcfd;
-    margin: 0;
+    margin-left: 10px;
 }
 
 /*LOGO*/

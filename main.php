@@ -77,8 +77,8 @@ include 'header.html';
                     <form action="do_schreiben.php" method="post" enctype="multipart/form-data">
                         <textarea id="input" name="TEXT" class="form-control" style="width:80%;" rows="3"  placeholder="Teile etwas deinen Mitstudierenden mit...">
                         </textarea>
-                        <input style="margin:-5% 0 0 20%" type="file" name="file">
-                        <button type="submit" class="btn btn-primary btn-sm" style="margin:-2% 20% 0 0" >Posten</button>
+                        <input style="margin:-4% 0 0 10%" type="file" class="form-control-file btn-sm" name="file">
+                        <button type="submit" class="btn btn-primary btn-sm" style="margin:0 0 0 40%" >Posten</button>
                     </form>
                 </div>
             </div>
