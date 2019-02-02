@@ -17,28 +17,11 @@ if (isset($_POST ['submit'])){//um eine Datei hochzuladen-> müssen wir zuerst d
     if (in_array($fileActualExt, $allowed_format)) {
         if ($fileError === 0) {
             if ($fileSize < 5000000) {
-                $PictureNewName = uniqid ('profileimage-', true) . "." . $fileActualExt;//Neue id für das Bild
-                // we create a unique id name so that the file won't get replaced with a file with the same name
-                //then we add a name of the extension behind our new unique name
-                $fileDestination = 'uploads/' . $PictureNewName;
+                $PictureNewName = uniqid ('profileimage-', true) . "." . $fileActualExt;//Neue einzigartige id für das Bild + Erweiterung wird hinzugefügt
+                $fileDestination = 'uploads/' . $PictureNewName; //es wird ein Datenbankeintrag erstellt
                 move_uploaded_file($fileTmpName, $fileDestination);//das hochgeladene Bild wird in den Ordner $fileDestination geschoben
 
-                //es wird ein Datenbankeintrag erstellt
-             /* $pic_id = $PictureNewName;
-                $activeuser = $_SESSION['activeruser'];
-                $success = $statement = $pdo->prepare("*/
-               /*   INSERT INTO profileimg (USER_ID,filename)
-                  VALUES ('$activeuser', '$fileDestination')");
-                //User ID und Verweis auf den Pfad auf dem Server, wo das Bild liegt
-                $pdo = new PDO ($dsn, $dbuser, $dbpass, $option);
-                $sql = "INSERT INTO posts (actual_user, image_id) VALUES (?, ?)";
-                $statement = $pdo->prepare($sql);
-                $statement->execute(array("$actual_user", "$image_id"));
-
-                $statement->execute("");*/
-                // $query->execute(array("user_id" => $user_id, "img_id" => $PictureNewName));
-
-                // find old profile image
+                // altes Profilbild finden
                 $sql = "SELECT image_id, filename FROM profileimg WHERE USER_ID = $actualUser";
                 $existingProfileimageIDsArray = array();
                 foreach ($pdo->query($sql) as $image) {
@@ -46,14 +29,14 @@ if (isset($_POST ['submit'])){//um eine Datei hochzuladen-> müssen wir zuerst d
                 }
                 $existingProfileimageIDsList = implode(',', $existingProfileimageIDsArray);
 
-                // insert new profile image
+                // neues Profilbild einfügen
                 $sql = "INSERT INTO profileimg (USER_ID, filename) VALUES (?,?)";
                 $stmt = $pdo->prepare($sql);
-                $success = $stmt->execute([$actualUser, $fileDestination]);
+                $success = $stmt->execute([$actualUser, $fileDestination]);  //User ID und Verweis auf den Pfad auf dem Server, wo das Bild liegt
 
                 if ($success) {
 
-                    // delete old images
+                    // altes Bild löschen
                     $sql = "DELETE FROM profileimg WHERE image_id IN ($existingProfileimageIDsList)";
                     $pdo->query($sql);
 
@@ -78,10 +61,8 @@ if (isset($_POST ['submit'])){//um eine Datei hochzuladen-> müssen wir zuerst d
     }
     echo $profileimg_upload;
 
-    //check if the file is allowed (if it has the proper extension)-> check if amy of these extensions listed in $allowed are inside $fileActualExt
-//ansonsten kommt die Fehlermeldung
+    //Prüfen ob alle Bedienungen erfüllt sind ->ansonsten kommt die Fehlermeldung
 
 }
-
 //überprüfen ob Button geklickt wurde und ob der Benutzer das Bild hochladen möchte
-//submit weil wir "submit" als Name für unsere Button verwenden
+
