@@ -74,8 +74,8 @@ if(!isset($_SESSION["angemeldet"]))
             <div class="grid">
                 <?php
                 $searchOption = $_GET['searchoption'];
-                $searchText = strtolower($_GET['searchtext']);
-
+                $searchText = strtolower($_GET['searchtext']); //String in Kleinbuchstaben konvertieren
+                //Eine Suchoption auswählen
                 $searchField = '';
                 switch ($searchOption) {
                     case 'username':
@@ -100,7 +100,7 @@ if(!isset($_SESSION["angemeldet"]))
                         echo 'something went wrong';
                         exit;
                 }
-
+                   //Case-Insensitives Filtern durchführen
                 $sql = 'SELECT USER_ID, USERNAME, EMAIL, STUDIENGANG, NACHNAME, VORNAME, KUERZEL, UEBER FROM users WHERE lower(' . $searchField . ') LIKE "%' . $searchText . '%"';
                 $posts = $pdo->query($sql)->fetchAll();
                     foreach ($posts as $post) {
@@ -110,12 +110,14 @@ if(!isset($_SESSION["angemeldet"]))
                     $sql = "SELECT filename FROM profileimg WHERE USER_ID = $userId";
                     $foundProfileImage = $pdo->query($sql)->fetch();
                     if ($foundProfileImage) {
-                    // if image found show image
+                    // Wenn das Bild gefunden wurde, dieses anzeigen
                     $profileImagePath = $foundProfileImage['filename'];
                     } else {
-                    // if no image found user default image
+                    // Wenn kein Bild ein Benutzer-Standardbild verwenden
                     $profileImagePath = "bilder/default-user-profile-picture-3.png";
                     }
+
+                    //Darstellung der Ergebnisse
                     echo '<div class="grid-item" style="border: none !important; background-color: #e1e2e3 !important;">';
                     echo '<img class="post_img" src="' . $profileImagePath . '" />';
                     echo '<div>' ."Username: ". $post['USERNAME'] . '</div>';

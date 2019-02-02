@@ -30,13 +30,10 @@ if (isset($_SESSION['angemeldet'])) //prüft ob schon angemeldet, wenn ja weiter
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 bg_section_login">
                 <img class="logo" src="LOCI.png" alt="logo"/>
             </div>
-         <!--   <div class="col-12 m_bg_section_login">
-                <img class="logo" src="LOCI.png" alt="logo"/>
-            </div>-->
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 login_section">
                 <div class="willkommen"><h4>Willkommen bei LOCI</h4></div>
 
-                    <form class="needs-validation" action="do_login.php" method="post" novalidate>
+                    <form class="needs-validation" action="do_login.php" method="post">
                     <!-- Formular-->
 
                     <div class="form-row">
@@ -49,7 +46,9 @@ if (isset($_SESSION['angemeldet'])) //prüft ob schon angemeldet, wenn ja weiter
                 </form>
 
                     <div class="bigger_text">Neu bei Loci? </div>
+                <!--EINLOGGEN-->
                 <form class="needs-validation" action="register.php" method="post" novalidate>
+                    <!--Verweis auf Registerseite-->
                 <input type="submit" class="btn btn-outline-primary" name="Register" value="Registrieren">
                 </form>
             </div>

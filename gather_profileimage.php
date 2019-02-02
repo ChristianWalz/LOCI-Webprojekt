@@ -5,15 +5,15 @@ include 'database.php';
 $actualUser = $_SESSION['aktiveruser'];
 
 if ($actualUser) {
-    // find profile image
+    // Profilbild suchen
     $sql = "SELECT filename FROM profileimg WHERE USER_ID = $actualUser";
     $foundProfileImage = $pdo->query($sql)->fetch();
 
     if ($foundProfileImage) {
-        // if image found show image
+        // Wenn das Bild gefunden wurde, dieses anzeigen
         $profileImagePath = $foundProfileImage['filename'];
     } else {
-        // if no image found user default image
+        // wenn kein Bild gefunden wurde, ein Default-Bild anzeigen
         $profileImagePath = "bilder/default-user-profile-picture-3.png";
     }
 } else {

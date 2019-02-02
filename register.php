@@ -25,8 +25,8 @@ include_once 'database.php';
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 signup_section">
                 <div class="register_form">
                     <div class="willkommen"><h4>Willkommen bei LOCI</h4></div>
-                    <form action="do_register.php" method="POST" class="form" id="reg_form" name="valform"> <!--das Formular muss beim Abschicken  nicht validiert werden:-->
-
+                    <form action="do_register.php" method="POST" class="form" id="reg_form" name="valform">
+                        <!--Registerformular-->
                         <div class="form-row">
                             <input type="text" class="form-control" id="form_name" name="Vorname" placeholder="Vorname" required
                                    pattern="^[a-zA-Z]{2,20}$"
@@ -112,7 +112,9 @@ include_once 'database.php';
                                 </select>
                                 <span class="error_form" id="course_error_message"></span>
                             </div>
-                            <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren"/>    <!--    <label class="form-check-label" for="login_check">Mit der Anmeldung stimmst du <a href="#"> unseren Nutzungsbedgungen</a>, <a href="#">und Datenschutzrichtlinie </a>zu</label>-->
+
+                        <!--SUBMIT-->
+                            <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren"/>
                          </form>
 
 
