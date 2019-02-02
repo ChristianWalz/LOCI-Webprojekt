@@ -57,55 +57,6 @@ include_once 'database.php';
                                    title="Bitte gebe eine gültige E-Mail Adresse ein!">
                             <span class="error_form" id="email_error_message"></span>
                         </div>
-                        <!--<div class="form-row">
-                             <input type="email" class="form-control" id="re_mail" placeholder="Email wiederholden" required>
-                         </div>-->
-                        <div class="form-row">
-                            <select name="Studiengang" class="form-control" id="form_course" required=""
-                                    title="Bitte wähle deinen Studiengang aus!">
-                                <option>Studiengang auswählen</option>
-                                <option value="AM3">AM3</option>
-                                <option value="AM7">AM7</option>
-                                <option value="BAS">BAS</option>
-                                <option value="BI7">BI7</option>
-                                <option value="BIP7">BIP7</option>
-                                <option value="CP3">CP3</option>
-                                <option value="CR7">CR7</option>
-                                <option value="DBM">DBM</option>
-                                <option value="DC7">DC7</option>
-                                <option value="DCB7">DCB7</option>
-                                <option value="DCV7">DCV7</option>
-                                <option value="DT7">DT7</option>
-                                <option value="GT">GT</option>
-                                <option value="IBM">IBM</option>
-                                <option value="ID7">ID7</option>
-                                <option value="IP7">IP7</option>
-                                <option value="JCM">JCM</option>
-                                <option value="AM7">MCM</option>
-                                <option value="ME7">ME7</option>
-                                <option value="MI7">MI7</option>
-                                <option value="MM3">MM3</option>
-                                <option value="MM7">MM7</option>
-                                <option value="MOV">MOV</option>
-                                <option value="MP7">MP7</option>
-                                <option value="MR3">MR3</option>
-                                <option value="MW7">MW7</option>
-                                <option value="OM7">OM7</option>
-                                <option value="OMM">OMM</option>
-                                <option value="PD3">PD3</option>
-                                <option value="PM7">PM7</option>
-                                <option value="PT7">PT7</option>
-                                <option value="SPR">SPR</option>
-                                <option value="UK3">UK3</option>
-                                <option value="VT7">VT7</option>
-                                <option value="WBZ">WBZ</option>
-                                <option value="WI3">WI3</option>
-                                <option value="WI7">WI7</option>
-                                <option value="WM7">WM7</option>
-                            </select>
-                            <span class="error_form" id="course_error_message"></span>
-                        </div>
-
                         <div class="form-row">
                             <input type="password" class="form-control" id="form_password" placeholder="Passwort" name="Passwort" required
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
@@ -116,12 +67,58 @@ include_once 'database.php';
                             <input type="password" class="form-control" id="form_confirm_password" placeholder="Passwort wiederholen" name="password_confirm" required/>
                             <span class="error_form" id="password_confirm_error_message"></span>
                         </div>
-                        <div class="form-check">
+                        <div class="form-row">
+                                <select name="Studiengang" class="form-control" id="form_course" required=""
+                                        title="Bitte wähle deinen Studiengang aus!">
+                                    <option>Studiengang auswählen</option>
+                                    <option value="AM3">AM3</option>
+                                    <option value="AM7">AM7</option>
+                                    <option value="BAS">BAS</option>
+                                    <option value="BI7">BI7</option>
+                                    <option value="BIP7">BIP7</option>
+                                    <option value="CP3">CP3</option>
+                                    <option value="CR7">CR7</option>
+                                    <option value="DBM">DBM</option>
+                                    <option value="DC7">DC7</option>
+                                    <option value="DCB7">DCB7</option>
+                                    <option value="DCV7">DCV7</option>
+                                    <option value="DT7">DT7</option>
+                                    <option value="GT">GT</option>
+                                    <option value="IBM">IBM</option>
+                                    <option value="ID7">ID7</option>
+                                    <option value="IP7">IP7</option>
+                                    <option value="JCM">JCM</option>
+                                    <option value="AM7">MCM</option>
+                                    <option value="ME7">ME7</option>
+                                    <option value="MI7">MI7</option>
+                                    <option value="MM3">MM3</option>
+                                    <option value="MM7">MM7</option>
+                                    <option value="MOV">MOV</option>
+                                    <option value="MP7">MP7</option>
+                                    <option value="MR3">MR3</option>
+                                    <option value="MW7">MW7</option>
+                                    <option value="OM7">OM7</option>
+                                    <option value="OMM">OMM</option>
+                                    <option value="PD3">PD3</option>
+                                    <option value="PM7">PM7</option>
+                                    <option value="PT7">PT7</option>
+                                    <option value="SPR">SPR</option>
+                                    <option value="UK3">UK3</option>
+                                    <option value="VT7">VT7</option>
+                                    <option value="WBZ">WBZ</option>
+                                    <option value="WI3">WI3</option>
+                                    <option value="WI7">WI7</option>
+                                    <option value="WM7">WM7</option>
+                                </select>
+                                <span class="error_form" id="course_error_message"></span>
+                            </div>
                             <input type="submit" class="btn btn-primary" name="Registrierung" value="Registrieren"/>    <!--    <label class="form-check-label" for="login_check">Mit der Anmeldung stimmst du <a href="#"> unseren Nutzungsbedgungen</a>, <a href="#">und Datenschutzrichtlinie </a>zu</label>-->
-                        </div>
+                         </form>
 
-                    </form>
-<script type="text/javascript">
+
+
+
+<!--<script type="text/javascript">
 
     $(function() {
         $("#name_error_message").hide();
@@ -235,9 +232,9 @@ include_once 'database.php';
 
         }
         function check_course() {
-        <!--    var pattern = /^[a-zA-Z0-9 \-_]*$/; -->               //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
+              //es wird geprüft, ob der Wert mit dem Pattern übereinstimmt
             var course_length =  $("#form_course").val().length;
-        <!--    var shortcut = $("#form_shortcut").val ();-->
+
             if (shortcut !== '' &&course_length>5) {
                 $("#course_error_message").html("Bitte auswählen!"); //wenn der Wert nicht mit dem Pattern übereinstimmt
                 $("#form_course").css("border-bottom","2px solid #F90A0A");
@@ -327,7 +324,7 @@ include_once 'database.php';
         });
     });
 
-</script>
+</script> -->
 
                        <div class="bigger_text">Du hast bereits einen Account? </div>
 
@@ -342,10 +339,8 @@ include_once 'database.php';
     </div>
 </div>
 
-<!-- jQuery
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
---><!-- Bootstrap JS -->
+
+<!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 

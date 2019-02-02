@@ -30,12 +30,12 @@ if(isset($_SESSION['angemeldet'])) {
             echo '<img class="post_img" src="' . $profileImagePath . '"/>';
             echo '</div>';
             echo '<div class="col-sm-9">';
-            echo '<div class="card">';
+            echo '<div class="card" style="border: none !important; background-color: #e1e2e3 !important;">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['USERNAME'] . '</h5>';
             echo '<p class="card-text">' . $row['TEXT'] . '</p>';
             if ($row['IMAGE']) {
-                echo '<img id="user_img" src="'.$row['IMAGE'].'" alt="Bild">';
+                echo '<img class="user_img" src="'.$row['IMAGE'].'" alt="Bild">';
             }
             echo '</div>';
             echo '</div>';

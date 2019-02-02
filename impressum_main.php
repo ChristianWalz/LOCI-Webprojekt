@@ -36,47 +36,47 @@ if(!isset($_SESSION["angemeldet"]))
 include 'header.html';
 ?>
 <body>
-
 <div class="container">
-    <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row">
-
-
         <div class="col-sm-3">
-
-            <!-- SIDEBAR Userimage -->
-            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
-            <div class="profile-img">
-                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+            <div class="profile-sidebar"> <!--SIDEBAR-->
+                <div id="profile-username" style="text-align:center">
+                    <h2>
+                        <?php
+                        echo $nutzer_ausgelesen; //Nutzername anzeigen
+                        ?>
+                    </h2>
+                </div>
+                <!-- SIDEBAR Userimage -->
+                <div class="profile-userpic"> <!--<div class="profile-img">-->
+                    <?php echo '<img src="' . $profileImagePath . '" alt="Profilbild" class="img-responsive">' ?>  <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+                </div>
+                <!-- END SIDEBAR Userimage -->
+                <!--SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav sidenav" style="display: block !important;">
+                        <li class="active">
+                            <a href="main.php">
+                                <i class="fas fa-exchange-alt fa-xs"></i>Beiträge</a>
+                        </li>
+                        <li>
+                            <a href="Follow_list_main.php">
+                                <i class="fas fa-user-friends fa-xs"></i>Following</a>
+                        </li>
+                        <li>
+                            <a href="news_main.php">
+                                <i class="fas fa-globe fa-xs"></i>News</a>
+                        </li>
+                        <li>
+                            <a href="veranstaltungen_main.php">
+                                <i class="fas fa-calendar-week fa-xs"></i>Events</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END SIDEBARMENU -->
             </div>
-
-            <!-- END SIDEBAR Userimage -->
-            <div id="benutzer_name">
-                <h2>
-                    <?php
-
-                    echo $nutzer_ausgelesen;
-                    ?>
-                </h2>
-
-            </div>
-            <br>
-            <br>
-
-            <div class="nav nav-pills flex-column" id="profile-usermenu">
-                <ul>
-                    <!--MENU -->  <!-- SIDEBAR BUTTONS -->
-                    <li> <i class="fas fa-exchange-alt"></i> <a href="main.php"> Beiträge</a></li>
-                    <li> <i class="fas fa-user-friends"></i> <a href="Follow_list_main.php" > Following</a></li>
-                    <li> <i class="fas fa-globe"></i> <a href="news_main.php"> Neuigkeiten</a></li>
-                    <!-- <p> <i class="far fa-calendar-times"></i> <a href="#" target="_blank"> Stundenplan</a></p>-->
-                    <li> <i class="fas fa-calendar-week"></i> <a href="veranstaltungen_main.php"> Veranstaltungen</a></li>
-                    <!--  <p> <i class="fas fa-briefcase"></i> <a href="#" target="_blank"> Jobbörse</a></p>-->
-                </ul>
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
         </div>
+
         <div class="col-sm-9">
 
             <!-- Darstellung der Beiträge-->
@@ -109,8 +109,7 @@ include 'header.html';
 
 <footer>
 
-    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: white;border-style: solid; border-color: #dddddd;">Impressum </a>
-
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
 </footer>
 
 

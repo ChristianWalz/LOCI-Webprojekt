@@ -8,7 +8,6 @@ echo 'Hier siehst du alle Mitglieder.';
 $content = $_POST["content"];
 echo $content;
 include 'database.php';
-//auslesen aller mitglieder
 $statement = $pdo->prepare("SELECT * FROM users ORDER BY USER_ID ASC");
 if ($statement->execute()) {
     while ($row = $statement->fetch()) {
@@ -26,11 +25,10 @@ if ($statement->execute()) {
             // if no image found user default image
             $profileImagePath = "bilder/default-user-profile-picture-3.png";
         }
-        //anzeigen aller mitglieder und zugehöriges bild
         echo '<img class="post_img" src="' . $profileImagePath . '"/>';
         echo '</div>';
         echo '<div class="col-sm-9">';
-        echo '<div class="card">';
+        echo '<div class="card" style="border: none !important; background-color: #e1e2e3 !important;">';
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $row['USERNAME'] . '</h5>';
         echo '<p class="card-text">' . $row['STUDIENGANG'] . '</p>';

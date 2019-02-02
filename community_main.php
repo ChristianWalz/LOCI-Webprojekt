@@ -38,36 +38,44 @@ include 'header.html';
 <body>
 
 <div class="container">
-    <!--<img id="background" src="bilder/hintergrund.jpg" alt="">-->
     <div class="row">
-
-
         <div class="col-sm-3">
-            <div id="benutzer_name">
-                <h2>
-                    <?php
-                    echo $nutzer_ausgelesen;
-                    ?>
-                </h2>
-
+            <div class="profile-sidebar"> <!--SIDEBAR-->
+                <div id="profile-username" style="text-align:center">
+                    <h2>
+                        <?php
+                        echo $nutzer_ausgelesen; //Nutzername anzeigen
+                        ?>
+                    </h2>
+                </div>
+                <!-- SIDEBAR Userimage -->
+                <div class="profile-userpic"> <!--<div class="profile-img">-->
+                    <?php echo '<img src="' . $profileImagePath . '" alt="Profilbild" class="img-responsive">' ?>  <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+                </div>
+                <!-- END SIDEBAR Userimage -->
+                <!--SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav sidenav" style="display: block !important;">
+                        <li class="active">
+                            <a href="main.php">
+                                <i class="fas fa-exchange-alt fa-xs"></i>Beiträge</a>
+                        </li>
+                        <li>
+                            <a href="Follow_list_main.php">
+                                <i class="fas fa-user-friends fa-xs"></i>Following</a>
+                        </li>
+                        <li>
+                            <a href="news_main.php">
+                                <i class="fas fa-globe fa-xs"></i>News</a>
+                        </li>
+                        <li>
+                            <a href="veranstaltungen_main.php">
+                                <i class="fas fa-calendar-week fa-xs"></i>Events</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END SIDEBARMENU -->
             </div>
-
-            <!-- SIDEBAR Userimage -->
-            <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-
-            <div class="profile-img">
-                <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
-            </div>
-
-            <!-- END SIDEBAR Userimage -->
-
-            <div class="sidenav">
-                <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
-                <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
-                <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
-                <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
         </div>
         <div class="col-sm-9">
 

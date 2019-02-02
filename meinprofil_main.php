@@ -41,21 +41,46 @@ include 'header.html';
         <div class="card-body feed-background">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <!-- SIDEBAR Userimage -->
-                        <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
-                        <div class="profile-img">
-                            <?php echo '<img id="user_img" src="' . $profileImagePath . '" alt="Profilbild">' ?>
+                    <div class="col-sm-3">
+                        <div class="profile-sidebar"> <!--SIDEBAR-->
+                            <div id="profile-username" style="text-align:center">
+                                <h2>
+                                    <?php
+                                    echo $nutzer_ausgelesen; //Nutzername anzeigen
+                                    ?>
+                                </h2>
+                            </div>
+                            <!-- SIDEBAR Userimage -->
+                            <div class="profile-userpic">
+                                <?php echo '<img src="' . $profileImagePath . '" alt="Profilbild" class="img-responsive">' ?>  <!--Placeholder falls ein Nutzer kein Profilbild hochgeladen hat-->
+                            </div>
+                            <!-- END SIDEBAR Userimage -->
+                            <div class="change_img">  <!--BUTTON "PROFILBILD ÄNDERN"-->
+                                <a href="change_image.php" class="btn btn-light btn-sm" id="flat_button">Bearbeiten</a>
+                            </div>
+                            <!--SIDEBAR MENU -->
+                            <div class="profile-usermenu">
+                                <ul class="nav sidenav" style="display: block !important;">
+                                    <li class="active">
+                                        <a href="main.php">
+                                            <i class="fas fa-exchange-alt fa-xs"></i>Beiträge</a>
+                                    </li>
+                                    <li>
+                                        <a href="Follow_list_main.php">
+                                            <i class="fas fa-user-friends fa-xs"></i>Following</a>
+                                    </li>
+                                    <li>
+                                        <a href="news_main.php">
+                                            <i class="fas fa-globe fa-xs"></i>News</a>
+                                    </li>
+                                    <li>
+                                        <a href="veranstaltungen_main.php">
+                                            <i class="fas fa-calendar-week fa-xs"></i>Events</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END SIDEBARMENU -->
                         </div>
-                        <div class="change_img">
-                            <a href="change_image.php" class="btn btn-light btn-sm" id="flat_button">Bearbeiten</a>
-                        </div>
-                        <div class="sidenav">
-                            <a class="active" href="main.php"> <i class="fas fa-exchange-alt fa-xs"></i>  Beiträge</a>
-                            <a href="Follow_list_main.php"><i class="fas fa-user-friends fa-xs"></i>  Following</a>
-                            <a href="news_main.php"><i class="fas fa-globe fa-xs"></i>  News</a>
-                            <a href="veranstaltungen_main.php"><i class="fas fa-calendar-week fa-xs"></i>  Events</a>
-                        </div><!-- END SIDEBAR Userimage -->
                     </div>
                     <div class="col-md-9">
                         <?php include 'profildaten.php'; ?>
@@ -75,9 +100,6 @@ include 'header.html';
     <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
 
 </footer>
-
-
-
 
 
 </body>
