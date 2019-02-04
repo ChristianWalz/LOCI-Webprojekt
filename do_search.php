@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'database.php';
-
 $user_id = $_SESSION['aktiveruser'];
 $nutzer_ausgelesen = $_SESSION['aktiveruser_name'];
 $studiengang_ausgelesen = $_SESSION ['aktiveruser_studi'];
@@ -70,7 +69,7 @@ if(!isset($_SESSION["angemeldet"]))
             </div>
         </div>
         <div class="col-sm-9">
-         <!-- Darstellung der Suchergebnisse-->
+            <!-- Darstellung der Suchergebnisse-->
             <div class="grid">
                 <?php
                 $searchOption = $_GET['searchoption'];
@@ -100,23 +99,22 @@ if(!isset($_SESSION["angemeldet"]))
                         echo 'something went wrong';
                         exit;
                 }
-                   //Case-Insensitives Filtern durchführen
+                //Case-Insensitives Filtern durchführen
                 $sql = 'SELECT USER_ID, USERNAME, EMAIL, STUDIENGANG, NACHNAME, VORNAME, KUERZEL, UEBER FROM users WHERE lower(' . $searchField . ') LIKE "%' . $searchText . '%"';
                 $posts = $pdo->query($sql)->fetchAll();
-                    foreach ($posts as $post) {
+                foreach ($posts as $post) {
                     $sql = 'SELECT USER_ID, USERNAME, EMAIL, STUDIENGANG, NACHNAME, VORNAME, KUERZEL, UEBER FROM users WHERE lower(' . $searchField . ') LIKE "%' . $searchText . '%"';
                     $posts = $pdo->query($sql)->fetchAll();
                     $userId = $post['USER_ID'];
                     $sql = "SELECT filename FROM profileimg WHERE USER_ID = $userId";
                     $foundProfileImage = $pdo->query($sql)->fetch();
                     if ($foundProfileImage) {
-                    // Wenn das Bild gefunden wurde, dieses anzeigen
-                    $profileImagePath = $foundProfileImage['filename'];
+                        // Wenn das Bild gefunden wurde, dieses anzeigen
+                        $profileImagePath = $foundProfileImage['filename'];
                     } else {
-                    // Wenn kein Bild ein Benutzer-Standardbild verwenden
-                    $profileImagePath = "bilder/default-user-profile-picture-3.png";
+                        // Wenn kein Bild ein Benutzer-Standardbild verwenden
+                        $profileImagePath = "bilder/default-user-profile-picture-3.png";
                     }
-
                     //Darstellung der Ergebnisse
                     echo '<div class="grid-item" style="border: none !important; background-color: #e1e2e3 !important;">';
                     echo '<img class="post_img" src="' . $profileImagePath . '" />';
@@ -128,12 +126,18 @@ if(!isset($_SESSION["angemeldet"]))
                     echo '<div>' ."Über: ". $post['UEBER'] . '</div>';
                     echo "<a href=\"profil_fremd_main.php?id=" . $post['USER_ID'] . "\">Zum Profil</a>";
                     echo '</div>';
-                    }
-                    ?>
+                }
+                ?>
             </div>
         </div>
     </div>
 </div>
+
+<footer>
+
+    <a href="impressum_main.php" style="font-size: 20px; margin-left:50%; color: #708090; font-weight: lighter; ">Impressum </a>
+
+</footer>
 
 </body>
 </html>

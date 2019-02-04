@@ -54,7 +54,7 @@ include 'header.html';
                 <!--SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav sidenav" style="display: block !important;">
-                        <li class="active">
+                        <li>
                             <a href="main.php">
                                 <i class="fas fa-exchange-alt fa-xs"></i>Beiträge</a>
                         </li>
@@ -62,7 +62,7 @@ include 'header.html';
                             <a href="Follow_list_main.php">
                                 <i class="fas fa-user-friends fa-xs"></i>Following</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="news_main.php">
                                 <i class="fas fa-globe fa-xs"></i>News</a>
                         </li>
