@@ -156,8 +156,6 @@ input:active {
     .container .login_section form .form-row .form-control, .container .signup_section form .form-row .form-control {
         width: 385px;
         font-size: 1.1rem;
-        margin-top: 10px;
-        padding: 12px 30px;
     }
 }
 

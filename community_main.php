@@ -56,7 +56,7 @@ include 'header.html';
                 <!--SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav sidenav" style="display: block !important;">
-                        <li class="active">
+                        <li>
                             <a href="main.php">
                                 <i class="fas fa-exchange-alt fa-xs"></i>Beiträge</a>
                         </li>
